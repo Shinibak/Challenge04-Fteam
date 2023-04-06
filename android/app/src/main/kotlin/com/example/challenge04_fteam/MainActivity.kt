@@ -1,0 +1,6 @@
+package com.example.challenge04_fteam
+
+import io.flutter.embedding.android.FlutterActivity
+
+class MainActivity: FlutterActivity() {
+}
