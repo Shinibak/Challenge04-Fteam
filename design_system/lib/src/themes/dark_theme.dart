@@ -46,7 +46,7 @@ ThemeData get darkTheme => ThemeData(
           profileButton: const Color(0xff6963db),
           profileCardTheme: const Color(0xff5d55d0),
           onlineColor: const Color(0xffa4d43c),
-          offlineColor: Colors.transparent,
+          offColor: Colors.transparent,
           sendMsg: const Color(0xffb783f2),
           receivedMsg: const Color(0xff15161a),
           backOpacity: Colors.black.withOpacity(0.7),

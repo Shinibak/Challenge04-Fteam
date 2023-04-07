@@ -1,8 +1,6 @@
 import 'package:design_system/design_system.dart';
+import 'package:example/src/widgetbook_app.dart';
 import 'package:flutter/material.dart';
-import 'pages/chat_page.dart';
-import 'pages/profile_page.dart';
-import 'pages/view_chat_page.dart';
 
 class AppWidget extends StatelessWidget {
   const AppWidget({super.key});
@@ -16,12 +14,7 @@ class AppWidget extends StatelessWidget {
       themeMode: ThemeMode.dark,
       theme: lightTheme,
       darkTheme: darkTheme,
-      initialRoute: '/',
-      routes: {
-        '/': (context) => const ViewChatPage(),
-        '/two': (context) => const ChatPage(),
-        '/tree': (context) => const ProfilePage(),
-      },
+      home: const WidgetbookApp(),
     );
   }
 }

@@ -39,7 +39,7 @@ class MenuBarWidget extends StatelessWidget {
                   itemBuilder: (BuildContext context, int index) {
                     return Row(
                       children: [
-                        MenuButtonWidget(
+                        MenuButtonMobileWidget(
                           icon: menuList[index].icon,
                           active: menuList[index].active,
                           screenSize: screenSize,

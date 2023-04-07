@@ -17,7 +17,7 @@ class ThemeCustom extends ThemeExtension<ThemeCustom> {
   final Color? profileButton;
   final Color? profileCardTheme;
   final Color? onlineColor;
-  final Color? offlineColor;
+  final Color? offColor;
   final Color? sendMsg;
   final Color? receivedMsg;
   final Color? backOpacity;
@@ -41,7 +41,7 @@ class ThemeCustom extends ThemeExtension<ThemeCustom> {
     required this.profileButton,
     required this.profileCardTheme,
     required this.onlineColor,
-    required this.offlineColor,
+    required this.offColor,
     required this.sendMsg,
     required this.receivedMsg,
     required this.backOpacity,
@@ -67,7 +67,7 @@ class ThemeCustom extends ThemeExtension<ThemeCustom> {
     Color? profileButton,
     Color? profileCardTheme,
     Color? onlineColor,
-    Color? offlineColor,
+    Color? offColor,
     Color? sendMsg,
     Color? receivedMsg,
     Color? backOpacity,
@@ -93,7 +93,7 @@ class ThemeCustom extends ThemeExtension<ThemeCustom> {
       deleted: deleted ?? this.deleted,
       receivedMsg: receivedMsg ?? this.receivedMsg,
       profileCardTheme: profileCardTheme ?? this.profileCardTheme,
-      offlineColor: offlineColor ?? this.offlineColor,
+      offColor: offColor ?? this.offColor,
       onlineColor: onlineColor ?? this.onlineColor,
       profileButton: profileButton ?? this.profileButton,
       sendMsg: sendMsg ?? this.sendMsg,
@@ -128,7 +128,7 @@ class ThemeCustom extends ThemeExtension<ThemeCustom> {
       back: Color.lerp(back, other.back, t),
       backOpacity: Color.lerp(backOpacity, other.backOpacity, t),
       deleted: Color.lerp(deleted, other.deleted, t),
-      offlineColor: Color.lerp(offlineColor, other.offlineColor, t),
+      offColor: Color.lerp(offColor, other.offColor, t),
       onlineColor: Color.lerp(onlineColor, other.onlineColor, t),
       profileButton: Color.lerp(profileButton, other.profileButton, t),
       profileCardTheme: Color.lerp(profileCardTheme, other.profileCardTheme, t),
