@@ -10,7 +10,7 @@ export 'src/widgets/avatar_notification_widget.dart';
 export 'src/widgets/avatar_todo_list.widget.dart';
 export 'src/widgets/chat_preview_widget.dart';
 export 'src/widgets/filter_button_widget.dart';
-export 'src/widgets/menu_button_widget.dart';
+export 'src/widgets/menu_button_mobile_widget.dart';
 export 'src/widgets/message_received_widget.dart';
 export 'src/widgets/message_sent_widget.dart';
 export 'src/widgets/notification_widget.dart';

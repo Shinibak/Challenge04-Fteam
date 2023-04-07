@@ -18,7 +18,7 @@ class OnlineStatusWidget extends StatelessWidget {
       height: screenSize * 0.026,
       width: screenSize * 0.026,
       decoration: BoxDecoration(
-        color: isOnline ? theme.onlineColor : theme.offlineColor,
+        color: isOnline ? theme.onlineColor : theme.offColor,
         borderRadius: BorderRadius.circular(screenSize * 0.021),
       ),
     );

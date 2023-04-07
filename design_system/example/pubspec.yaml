@@ -34,6 +34,12 @@ dependencies:
   design_system:
     path: ../  
   widgetbook: ^2.4.1
+  
+  widgetbook_generator: ^2.4.1
+
+  widgetbook_models: ^0.0.7
+
+  widgetbook_annotation: ^2.1.0
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
