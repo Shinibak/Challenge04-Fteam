@@ -20,7 +20,6 @@ class ExpandedListWidget extends StatefulWidget {
 class _ExpandedListWidgetState extends State<ExpandedListWidget> {
   late bool wasPassed = widget.active;
   final profileList = profilesDataList;
-
   double turns = 0;
 
   @override
