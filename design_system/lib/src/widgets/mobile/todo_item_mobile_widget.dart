@@ -1,8 +1,8 @@
-
+import 'package:design_system/design_system.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:intl/intl.dart';
-import '../../themes/theme_extensions.dart';
+
 import 'check_box_mobile_widget.dart';
 
 // ignore: must_be_immutable

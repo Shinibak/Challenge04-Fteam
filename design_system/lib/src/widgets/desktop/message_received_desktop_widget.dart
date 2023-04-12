@@ -1,5 +1,5 @@
+import 'package:design_system/design_system.dart';
 import 'package:flutter/material.dart';
-import '../../themes/theme_extensions.dart';
 
 class MessageReceiveDesktopWidget extends StatelessWidget {
   final double screenSize;

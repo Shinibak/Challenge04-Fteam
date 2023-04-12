@@ -1,6 +1,5 @@
-import 'package:design_system/src/widgets/mobile/notification_mobile_widget.dart';
+import 'package:design_system/design_system.dart';
 import 'package:flutter/material.dart';
-import '../../themes/theme_extensions.dart';
 
 class FilterButtonMobileWidget extends StatefulWidget {
   final String text;

@@ -1,7 +1,5 @@
-
+import 'package:design_system/design_system.dart';
 import 'package:flutter/material.dart';
-
-import 'notification_descktop_widget.dart';
 
 class AvatarNotificationDesktopWidget extends StatelessWidget {
   final String avatarImage;

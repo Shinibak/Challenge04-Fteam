@@ -1,5 +1,5 @@
+import 'package:design_system/design_system.dart';
 import 'package:flutter/material.dart';
-import '../../../design_system.dart';
 
 class CheckBoxMobileWidget extends StatelessWidget {
   final bool wasCheck;

@@ -1,6 +1,5 @@
 import 'package:design_system/design_system.dart';
 import 'package:flutter/material.dart';
-import 'avatar_desktop_widget.dart';
 
 class ProfileCardDesktopWidget extends StatelessWidget {
   final String avatarImage;

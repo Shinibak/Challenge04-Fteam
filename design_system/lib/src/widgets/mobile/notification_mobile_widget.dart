@@ -1,5 +1,6 @@
+import 'package:design_system/design_system.dart';
 import 'package:flutter/material.dart';
-import '../../themes/theme_extensions.dart';
+
 
 class NotificationMobileWidget extends StatelessWidget {
   final int notification;
