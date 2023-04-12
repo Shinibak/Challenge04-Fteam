@@ -59,7 +59,7 @@ class ProfileCardWidget extends StatelessWidget {
               SizedBox(width: screenSize * 0.309),
               Padding(
                 padding: EdgeInsets.only(top: screenSize * 0.0053),
-                child: AvatarTodoListWidget(
+                child: AvatarMobileWidget(
                   avatarImage: avatarImage,
                   screenSize: screenSize,
                 ),
@@ -83,7 +83,7 @@ class ProfileCardWidget extends StatelessWidget {
               SizedBox(width: screenSize * 0.0106),
               OnlineStatusWidget(
                 isOnline: isOnline,
-                screenSize: screenSize,
+                screenSize: screenSize * 0.026,
               ),
             ],
           ),
@@ -100,26 +100,34 @@ class ProfileCardWidget extends StatelessWidget {
               ),
               ProfileButtonsWidget(
                 icon: CustomIcon.callingIcon,
+                buttonSize: screenSize * 0.16,
+                iconSize: screenSize * 0.058,
+                borderRadius: screenSize * 0.04,
                 active: true,
-                screenSize: screenSize,
               ),
               SizedBox(width: screenSize * 0.04),
               ProfileButtonsWidget(
                 icon: CustomIcon.videoCallIcon,
+                buttonSize: screenSize * 0.16,
+                iconSize: screenSize * 0.058,
                 active: true,
-                screenSize: screenSize,
+                borderRadius: screenSize * 0.04,
               ),
               SizedBox(width: screenSize * 0.04),
               ProfileButtonsWidget(
                 icon: CustomIcon.volumeMuteIcon,
+                buttonSize: screenSize * 0.16,
+                iconSize: screenSize * 0.058,
                 active: true,
-                screenSize: screenSize,
+                borderRadius: screenSize * 0.04,
               ),
               SizedBox(width: screenSize * 0.04),
               ProfileButtonsWidget(
                 icon: CustomIcon.suitcaseOutlineIcon,
+                buttonSize: screenSize * 0.16,
+                iconSize: screenSize * 0.058,
+                borderRadius: screenSize * 0.04,
                 active: false,
-                screenSize: screenSize,
               ),
             ],
           ),
@@ -159,7 +167,7 @@ class ProfileCardWidget extends StatelessWidget {
               children: List.generate(
                 skills.length,
                 (index) {
-                  return ProfileSkillsWidget(
+                  return ProfileSkillsMobileWidget(
                     backgroundColor: skills[index].color,
                     title: skills[index].skill,
                     screenSize: screenSize,

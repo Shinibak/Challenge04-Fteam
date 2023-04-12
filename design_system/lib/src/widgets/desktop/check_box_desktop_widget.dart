@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import '../../design_system.dart';
+import '../../themes/theme_extensions.dart';
 
-class CheckBoxWidget extends StatelessWidget {
+class CheckBoxDesktopWidget extends StatelessWidget {
   final bool wasCheck;
   final double screenSize;
 
-  const CheckBoxWidget({
+  const CheckBoxDesktopWidget({
     super.key,
     required this.wasCheck,
     required this.screenSize,

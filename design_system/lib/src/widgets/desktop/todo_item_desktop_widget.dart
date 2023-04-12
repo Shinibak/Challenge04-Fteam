@@ -1,11 +1,12 @@
-import 'package:design_system/src/widgets/check_box_widget.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:intl/intl.dart';
-import '../themes/theme_extensions.dart';
+import '../../themes/theme_extensions.dart';
+import 'check_box_desktop_widget.dart';
 
 // ignore: must_be_immutable
-class TodoItemWidget extends StatelessWidget {
+class TodoItemDesktopWidget extends StatelessWidget {
   final String taskName;
   final String date;
   final double screenSize;
@@ -13,7 +14,7 @@ class TodoItemWidget extends StatelessWidget {
   Function(bool)? onChanged;
   Function(BuildContext)? deletedFunction;
 
-  TodoItemWidget({
+  TodoItemDesktopWidget({
     super.key,
     required this.taskName,
     required this.date,
@@ -101,7 +102,7 @@ class TodoItemWidget extends StatelessWidget {
               SizedBox(width: screenSize * 0.032),
               GestureDetector(
                 onTap: () => onChanged!(taskCompleted),
-                child: CheckBoxWidget(
+                child: CheckBoxDesktopWidget(
                   wasCheck: taskCompleted,
                   screenSize: screenSize,
                 ),

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import '../../design_system.dart';
+import '../../../design_system.dart';
 
-class TextBarWidget extends StatelessWidget {
+class TextBarMobileWidget extends StatelessWidget {
   final double screenSize;
-  const TextBarWidget({super.key, required this.screenSize});
+  const TextBarMobileWidget({super.key, required this.screenSize});
 
   @override
   Widget build(BuildContext context) {

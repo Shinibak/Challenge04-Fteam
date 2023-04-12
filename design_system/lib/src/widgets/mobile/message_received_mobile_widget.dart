@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import '../themes/theme_extensions.dart';
+import '../../../design_system.dart';
 
-class MessageReceiveWidget extends StatelessWidget {
+class MessageReceiveMobileWidget extends StatelessWidget {
   final double screenSize;
   final String message;
-  const MessageReceiveWidget({
+  const MessageReceiveMobileWidget({
     super.key,
     required this.message,
     required this.screenSize,

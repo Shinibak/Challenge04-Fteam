@@ -4,12 +4,15 @@ import '../themes/theme_extensions.dart';
 class ProfileButtonsWidget extends StatelessWidget {
   final IconData icon;
   final bool active;
-  final double screenSize;
+  final double buttonSize;
+  final double iconSize;
+  final double borderRadius;
   const ProfileButtonsWidget({
     super.key,
     required this.icon,
     required this.active,
-    required this.screenSize,
+    required this.buttonSize,
+    required this.iconSize, required this.borderRadius,
   });
 
   @override
@@ -17,10 +20,10 @@ class ProfileButtonsWidget extends StatelessWidget {
     final theme = Theme.of(context).extension<ThemeCustom>()!;
 
     return Container(
-      height: screenSize * 0.16,
-      width: screenSize * 0.16,
+      height: buttonSize,
+      width: buttonSize,
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(screenSize * 0.04),
+        borderRadius: BorderRadius.circular(borderRadius),
         color: theme.profileButton,
       ),
       child: Center(
@@ -29,7 +32,7 @@ class ProfileButtonsWidget extends StatelessWidget {
           color: active
               ? Theme.of(context).iconTheme.color
               : theme.buttonIconColorOff,
-          size: screenSize * 0.058,
+          size: iconSize,
         ),
       ),
     );

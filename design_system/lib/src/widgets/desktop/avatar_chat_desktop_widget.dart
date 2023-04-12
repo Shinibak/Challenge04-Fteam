@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-class AvatarTodoListWidget extends StatelessWidget {
+class AvatarChatDesktopWidget extends StatelessWidget {
   final String avatarImage;
   final double screenSize;
-  const AvatarTodoListWidget({
+  const AvatarChatDesktopWidget({
     super.key,
     required this.avatarImage,
     required this.screenSize,
@@ -12,11 +12,11 @@ class AvatarTodoListWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: screenSize * 0.2133333,
-      width: screenSize * 0.2133333,
+      height: screenSize * 0.064,
+      width: screenSize * 0.064,
       child: CircleAvatar(
         backgroundImage: AssetImage(avatarImage),
-        radius: screenSize * 0.098,
+        radius: screenSize * 0.032,
       ),
     );
   }

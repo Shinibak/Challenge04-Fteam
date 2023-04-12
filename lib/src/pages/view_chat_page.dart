@@ -26,7 +26,7 @@ class ViewChatPage extends StatelessWidget {
                 SizedBox(
                   height: screenSize * 0.122,
                 ),
-                SearchWidget(screenSize: screenSize),
+                SearchMobileWidget(screenSize: screenSize),
                 SizedBox(
                   height: screenSize * 0.042,
                 ),

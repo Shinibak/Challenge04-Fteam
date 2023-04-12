@@ -28,7 +28,7 @@ class AppBarChatWidget extends StatelessWidget {
           Row(
             children: [
               SizedBox(width: screenSize * 0.048),
-              AvatarChatWidget(
+              AvatarChatMobileWidget(
                 avatarImage: profile.avatarImage,
                 screenSize: screenSize,
               ),

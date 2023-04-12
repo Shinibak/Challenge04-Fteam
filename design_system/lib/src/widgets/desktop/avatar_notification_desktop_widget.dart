@@ -1,13 +1,15 @@
-import 'package:design_system/design_system.dart';
+
 import 'package:flutter/material.dart';
 
-class AvatarNotificationWidget extends StatelessWidget {
+import 'notification_descktop_widget.dart';
+
+class AvatarNotificationDesktopWidget extends StatelessWidget {
   final String avatarImage;
   final int notifications;
   final bool active;
 
   final double screenSize;
-  const AvatarNotificationWidget({
+  const AvatarNotificationDesktopWidget({
     super.key,
     required this.avatarImage,
     required this.notifications,
@@ -39,7 +41,7 @@ class AvatarNotificationWidget extends StatelessWidget {
         Positioned(
           right: 0,
           bottom: 0,
-          child: NotificationWidget(
+          child: NotificationDesktopWidget(
             notification: notifications,
             activeNotification: active,
             screenSize: screenSize,

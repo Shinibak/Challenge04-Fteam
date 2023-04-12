@@ -38,7 +38,7 @@ class ChatPreviewWidget extends StatelessWidget {
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              AvatarNotificationWidget(
+              AvatarNotificationMobileWidget(
                 screenSize: screenSize,
                 avatarImage: avatarImage,
                 notifications: notifications,

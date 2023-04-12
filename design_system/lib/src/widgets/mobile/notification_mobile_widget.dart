@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import '../themes/theme_extensions.dart';
+import '../../themes/theme_extensions.dart';
 
-class NotificationWidget extends StatelessWidget {
+class NotificationMobileWidget extends StatelessWidget {
   final int notification;
   final bool activeNotification;
   final double screenSize;
-  const NotificationWidget({
+  const NotificationMobileWidget({
     super.key,
     required this.notification,
     required this.activeNotification,

@@ -33,7 +33,7 @@ class WidgetbookApp extends StatelessWidget {
               useCases: [
                 WidgetbookUseCase(
                   name: 'selected',
-                  builder: (context) => NotificationWidget(
+                  builder: (context) => NotificationMobileWidget(
                     activeNotification: true,
                     notification: 34,
                     screenSize: MediaQuery.of(context).size.width,
@@ -41,7 +41,7 @@ class WidgetbookApp extends StatelessWidget {
                 ),
                 WidgetbookUseCase(
                   name: 'unselected',
-                  builder: (context) => NotificationWidget(
+                  builder: (context) => NotificationMobileWidget(
                     activeNotification: false,
                     notification: 34,
                     screenSize: screenSize,
@@ -54,7 +54,7 @@ class WidgetbookApp extends StatelessWidget {
               useCases: [
                 WidgetbookUseCase(
                   name: 'selected Filter true',
-                  builder: (context) => FilterButtonWidget(
+                  builder: (context) => FilterButtonMobileWidget(
                     text: 'All',
                     icon: CustomIcon.archiveIcon,
                     notifications: 35,
@@ -64,7 +64,7 @@ class WidgetbookApp extends StatelessWidget {
                 ),
                 WidgetbookUseCase(
                   name: 'selected Filter False',
-                  builder: (context) => FilterButtonWidget(
+                  builder: (context) => FilterButtonMobileWidget(
                     text: 'All',
                     icon: CustomIcon.archiveIcon,
                     notifications: 35,
@@ -79,7 +79,7 @@ class WidgetbookApp extends StatelessWidget {
               useCases: [
                 WidgetbookUseCase(
                   name: 'Button',
-                  builder: (context) =>MenuButtonMobileWidget(
+                  builder: (context) => MenuButtonMobileWidget(
                     icon: CustomIcon.chatBoxIcon,
                     active: true,
                     screenSize: screenSize,
@@ -92,7 +92,7 @@ class WidgetbookApp extends StatelessWidget {
               useCases: [
                 WidgetbookUseCase(
                   name: 'search',
-                  builder: (context) => SearchWidget(
+                  builder: (context) => SearchMobileWidget(
                     screenSize: screenSize,
                   ),
                 ),
@@ -103,14 +103,14 @@ class WidgetbookApp extends StatelessWidget {
               useCases: [
                 WidgetbookUseCase(
                   name: 'send',
-                  builder: (context) => MessageSentWidget(
+                  builder: (context) => MessageSentMobileWidget(
                     message: 'batata',
                     screenSize: screenSize,
                   ),
                 ),
                 WidgetbookUseCase(
                   name: 'received',
-                  builder: (context) => MessageReceiveWidget(
+                  builder: (context) => MessageReceiveMobileWidget(
                     message: 'batata',
                     screenSize: screenSize,
                   ),
@@ -125,7 +125,9 @@ class WidgetbookApp extends StatelessWidget {
                   builder: (context) => ProfileButtonsWidget(
                     icon: CustomIcon.volumeMuteIcon,
                     active: true,
-                    screenSize: screenSize,
+                    buttonSize: screenSize * 0.16,
+                    iconSize: screenSize * 0.058,
+                    borderRadius: screenSize * 0.04,
                   ),
                 ),
                 WidgetbookUseCase(
@@ -133,7 +135,9 @@ class WidgetbookApp extends StatelessWidget {
                   builder: (context) => ProfileButtonsWidget(
                     icon: CustomIcon.volumeMuteIcon,
                     active: false,
-                    screenSize: screenSize,
+                    buttonSize: screenSize * 0.16,
+                    iconSize: screenSize * 0.058,
+                    borderRadius: screenSize * 0.04,
                   ),
                 ),
               ],
@@ -143,7 +147,7 @@ class WidgetbookApp extends StatelessWidget {
               useCases: [
                 WidgetbookUseCase(
                   name: 'Menu button true',
-                  builder: (context) =>MenuButtonMobileWidget(
+                  builder: (context) => MenuButtonMobileWidget(
                     icon: CustomIcon.statisticsChart,
                     active: true,
                     screenSize: screenSize,
@@ -151,7 +155,7 @@ class WidgetbookApp extends StatelessWidget {
                 ),
                 WidgetbookUseCase(
                   name: 'Menu button False',
-                  builder: (context) =>MenuButtonMobileWidget(
+                  builder: (context) => MenuButtonMobileWidget(
                     icon: CustomIcon.statisticsChart,
                     active: false,
                     screenSize: screenSize,
@@ -183,7 +187,7 @@ class WidgetbookApp extends StatelessWidget {
               useCases: [
                 WidgetbookUseCase(
                   name: 'Avatar notifications',
-                  builder: (context) => AvatarNotificationWidget(
+                  builder: (context) => AvatarNotificationMobileWidget(
                     notifications: 23,
                     active: true,
                     avatarImage: 'assets/avatar/avatar.png',
@@ -192,14 +196,14 @@ class WidgetbookApp extends StatelessWidget {
                 ),
                 WidgetbookUseCase(
                   name: 'Avatar Todo List',
-                  builder: (context) => AvatarTodoListWidget(
+                  builder: (context) => AvatarMobileWidget(
                     avatarImage: 'assets/avatar/avatar.png',
                     screenSize: screenSize,
                   ),
                 ),
                 WidgetbookUseCase(
                   name: 'Avatar Todo List',
-                  builder: (context) => AvatarChatWidget(
+                  builder: (context) => AvatarChatMobileWidget(
                     avatarImage: 'assets/avatar/avatar.png',
                     screenSize: screenSize,
                   ),

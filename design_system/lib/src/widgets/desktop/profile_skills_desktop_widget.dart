@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
-class ProfileSkillsWidget extends StatelessWidget {
+class ProfileSkillsDesktopWidget extends StatelessWidget {
   final double screenSize;
   final Color backgroundColor;
   final String title;
-  const ProfileSkillsWidget({
+  const ProfileSkillsDesktopWidget({
     super.key,
     required this.backgroundColor,
     required this.title,

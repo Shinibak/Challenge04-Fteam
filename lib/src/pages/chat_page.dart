@@ -30,7 +30,7 @@ class ChatPage extends StatelessWidget {
             alignment: Alignment.bottomCenter,
             child: Padding(
               padding: EdgeInsets.only(bottom: screenSize * 0.096),
-              child: TextBarWidget(
+              child: TextBarMobileWidget(
                 screenSize: screenSize,
               ),
             ),

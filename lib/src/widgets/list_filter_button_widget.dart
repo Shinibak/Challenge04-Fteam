@@ -17,7 +17,7 @@ class ListFilterButtonWidget extends StatelessWidget {
       scrollDirection: Axis.horizontal,
       itemCount: filterList.length,
       itemBuilder: (BuildContext context, int index) {
-        return FilterButtonWidget(
+        return FilterButtonMobileWidget(
           text: filterList[index].text,
           icon: filterList[index].icon,
           notifications: filterList[index].notifications,

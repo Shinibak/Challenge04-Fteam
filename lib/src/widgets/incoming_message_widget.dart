@@ -26,7 +26,7 @@ class IncomingMessageWidget extends StatelessWidget {
         Row(
           mainAxisSize: MainAxisSize.min,
           children: [
-            AvatarChatWidget(
+            AvatarChatMobileWidget(
               avatarImage: profilePicture,
               screenSize: screenSize,
             ),
@@ -54,7 +54,7 @@ class IncomingMessageWidget extends StatelessWidget {
                 padding: EdgeInsets.only(
                   bottom: screenSize * 0.021,
                 ),
-                child: MessageReceiveWidget(
+                child: MessageReceiveMobileWidget(
                   message: messages[index],
                   screenSize: screenSize,
                 ),
