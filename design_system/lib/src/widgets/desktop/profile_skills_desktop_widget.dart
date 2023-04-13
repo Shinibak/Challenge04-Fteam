@@ -15,21 +15,20 @@ class ProfileSkillsDesktopWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     final textStyle = Theme.of(context).textTheme;
     return Container(
-      height: screenSize * 0.08,
+      height: screenSize * 0.0234375,
       decoration: BoxDecoration(
         color: backgroundColor,
-        borderRadius: BorderRadius.circular(screenSize * 0.021),
+        borderRadius: BorderRadius.circular(screenSize * 0.0078125),
       ),
       child: Row(
         mainAxisSize: MainAxisSize.min,
         children: [
-          Padding(
-            padding: EdgeInsets.all(screenSize * 0.021),
-            child: Text(
-              title,
-              style: textStyle.caption,
-            ),
+          SizedBox(width: screenSize * 0.0078125),
+          Text(
+            title,
+            style: textStyle.caption,
           ),
+          SizedBox(width: screenSize * 0.0078125),
         ],
       ),
     );

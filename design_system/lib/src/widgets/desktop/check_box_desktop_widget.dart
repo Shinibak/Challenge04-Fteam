@@ -17,10 +17,10 @@ class CheckBoxDesktopWidget extends StatelessWidget {
     final theme = Theme.of(context).extension<ThemeCustom>()!;
 
     return Container(
-      height: screenSize * 0.106,
-      width: screenSize * 0.106,
+      height: screenSize * 0.025390625,
+      width: screenSize * 0.025390625,
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(screenSize * 0.026),
+        borderRadius: BorderRadius.circular(screenSize * 0.0078125),
         color: wasCheck ? theme.buttonColorOn : theme.todoColorOff,
         border: Border.all(
           color: theme.buttonColorOn!,
@@ -31,7 +31,7 @@ class CheckBoxDesktopWidget extends StatelessWidget {
         child: Icon(
           Icons.check,
           color: wasCheck ? theme.todoColorOn : theme.buttonColorOff,
-          size: screenSize * 0.042,
+          size: screenSize * 0.01171875,
         ),
       ),
     );

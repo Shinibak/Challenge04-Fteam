@@ -1,29 +1,26 @@
+import 'package:design_system/design_system.dart';
 import 'package:flutter/material.dart';
-import '../themes/theme_extensions.dart';
 
-class ProfileButtonsWidget extends StatelessWidget {
+class ProfileButtonsDesktopWidget extends StatelessWidget {
   final IconData icon;
   final bool active;
-  final double buttonSize;
-  final double iconSize;
-  final double borderRadius;
-  const ProfileButtonsWidget({
+  final double screenSize;
+  const ProfileButtonsDesktopWidget({
     super.key,
     required this.icon,
     required this.active,
-    required this.buttonSize,
-    required this.iconSize, required this.borderRadius,
+    required this.screenSize,
   });
 
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context).extension<ThemeCustom>()!;
 
-    return Container(
-      height: buttonSize,
-      width: buttonSize,
+     return Container(
+      height: screenSize *0.0390625,
+      width: screenSize * 0.0390625,
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(borderRadius),
+        borderRadius: BorderRadius.circular(screenSize * 0.01171875),
         color: theme.profileButton,
       ),
       child: Center(
@@ -32,7 +29,7 @@ class ProfileButtonsWidget extends StatelessWidget {
           color: active
               ? Theme.of(context).iconTheme.color
               : theme.buttonIconColorOff,
-          size: iconSize,
+          size: screenSize * 0.021484375,
         ),
       ),
     );

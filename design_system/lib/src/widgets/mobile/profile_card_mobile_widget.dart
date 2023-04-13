@@ -98,36 +98,28 @@ class ProfileCardWidget extends StatelessWidget {
               SizedBox(
                 width: screenSize * 0.112,
               ),
-              ProfileButtonsWidget(
+              ProfileButtonsMobileWidget(
                 icon: CustomIcon.callingIcon,
-                buttonSize: screenSize * 0.16,
-                iconSize: screenSize * 0.058,
-                borderRadius: screenSize * 0.04,
                 active: true,
+                screenSize: screenSize,
               ),
               SizedBox(width: screenSize * 0.04),
-              ProfileButtonsWidget(
+              ProfileButtonsMobileWidget(
                 icon: CustomIcon.videoCallIcon,
-                buttonSize: screenSize * 0.16,
-                iconSize: screenSize * 0.058,
                 active: true,
-                borderRadius: screenSize * 0.04,
+                screenSize: screenSize,
               ),
               SizedBox(width: screenSize * 0.04),
-              ProfileButtonsWidget(
+              ProfileButtonsMobileWidget(
                 icon: CustomIcon.volumeMuteIcon,
-                buttonSize: screenSize * 0.16,
-                iconSize: screenSize * 0.058,
                 active: true,
-                borderRadius: screenSize * 0.04,
+                screenSize: screenSize,
               ),
               SizedBox(width: screenSize * 0.04),
-              ProfileButtonsWidget(
+              ProfileButtonsMobileWidget(
                 icon: CustomIcon.suitcaseOutlineIcon,
-                buttonSize: screenSize * 0.16,
-                iconSize: screenSize * 0.058,
-                borderRadius: screenSize * 0.04,
                 active: false,
+                screenSize: screenSize,
               ),
             ],
           ),

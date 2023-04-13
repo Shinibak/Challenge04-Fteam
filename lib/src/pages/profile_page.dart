@@ -77,6 +77,10 @@ class _ProfilePageState extends State<ProfilePage> {
                             controller.checkBoxChanged(value, index),
                         deletedFunction: (context) =>
                             controller.deletedTask(index),
+                        validate: controller.validarData(
+                          DateTime.parse(
+                              controller.returnToDoList()[index].dateTodo),
+                        ),
                       ),
                     );
                   },

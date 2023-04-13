@@ -11,28 +11,28 @@ class SearchDesktopWidget extends StatelessWidget {
     final theme = Theme.of(context).extension<ThemeCustom>()!;    
 
     return Container(
-      height: screenSize * 0.16,
-      width: screenSize * 0.906,
+      height: screenSize * 0.060546875,
+      width: screenSize * 0.265625,
       decoration: BoxDecoration(
         color: theme.backOpacity,
-        borderRadius: BorderRadius.circular(screenSize * 0.053),
+        borderRadius: BorderRadius.circular(screenSize * 0.015625),
       ),
       child: Row(
         children: [
           SizedBox(
-            width: screenSize * 0.053,
+            width: screenSize * 0.017578125,
           ),
           Icon(
             Icons.search,
             color: Theme.of(context).iconTheme.color,
-            size: screenSize * 0.058,
+            size: screenSize * 0.0234375,
           ),
           SizedBox(
-            width: screenSize * 0.037,
+            width: screenSize * 0.013671875,
           ),
           Text(
             'Search',
-            style: textStyle.subtitle2,
+            style: textStyle.subtitle1,
           ),
         ],
       ),

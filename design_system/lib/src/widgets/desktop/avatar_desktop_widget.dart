@@ -12,11 +12,11 @@ class AvatarDesktopWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: screenSize * 0.2133333,
-      width: screenSize * 0.2133333,
+      height: screenSize * 0.04296875,
+      width: screenSize * 0.04296875,
       child: CircleAvatar(
         backgroundImage: AssetImage(avatarImage),
-        radius: screenSize * 0.098,
+        radius: screenSize * 0.021484375,
       ),
     );
   }

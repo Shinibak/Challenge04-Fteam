@@ -12,6 +12,7 @@ class TodoItemDesktopWidget extends StatelessWidget {
   final bool taskCompleted;
   Function(bool)? onChanged;
   Function(BuildContext)? deletedFunction;
+  final bool validate;
 
   TodoItemDesktopWidget({
     super.key,
@@ -21,6 +22,7 @@ class TodoItemDesktopWidget extends StatelessWidget {
     required this.taskCompleted,
     required this.onChanged,
     required this.deletedFunction,
+    required this.validate,
   });
 
   @override
@@ -29,40 +31,12 @@ class TodoItemDesktopWidget extends StatelessWidget {
     final theme = Theme.of(context).extension<ThemeCustom>()!;
     late final String period;
     final month = DateFormat('MMM');
-    final dateTime = DateTime.now();
     late TextStyle style;
-    late bool validate;
     final todoData = DateTime.parse(date);
     if (todoData.hour > 12) {
       period = 'PM';
     } else {
       period = 'AM';
-    }
-
-    if (todoData.year <= dateTime.year) {
-      if (todoData.month < dateTime.month) {
-        validate = true;
-      } else if (todoData.month == dateTime.month) {
-        if (todoData.day <= dateTime.day) {
-          if (todoData.hour < dateTime.hour) {
-            validate = true;
-          } else if (todoData.hour == dateTime.hour) {
-            if (todoData.minute < dateTime.minute) {
-              validate = true;
-            } else {
-              validate = false;
-            }
-          } else {
-            validate = false;
-          }
-        } else {
-          validate = false;
-        }
-      } else {
-        validate = false;
-      }
-    } else {
-      validate = false;
     }
 
     if (validate) {

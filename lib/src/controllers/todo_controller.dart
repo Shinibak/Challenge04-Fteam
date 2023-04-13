@@ -49,6 +49,37 @@ class TodoController extends ChangeNotifier {
     putTodo();
   }
 
+  bool validarData(DateTime todoData) {
+    final dateTime = DateTime.now();
+    final bool validate;
+    if (todoData.year <= dateTime.year) {
+      if (todoData.month < dateTime.month) {
+        validate = true;
+      } else if (todoData.month == dateTime.month) {
+        if (todoData.day <= dateTime.day) {
+          if (todoData.hour < dateTime.hour) {
+            validate = true;
+          } else if (todoData.hour == dateTime.hour) {
+            if (todoData.minute < dateTime.minute) {
+              validate = true;
+            } else {
+              validate = false;
+            }
+          } else {
+            validate = false;
+          }
+        } else {
+          validate = false;
+        }
+      } else {
+        validate = false;
+      }
+    } else {
+      validate = false;
+    }
+    return validate;
+  }
+
   void orderByeDate() {
     _toDoList.sort((a, b) => a.dateTodo.compareTo(b.dateTodo));
   }

@@ -124,7 +124,7 @@ class _ExpandedListWidgetState extends State<ExpandedListWidget>
                                   ? widget.screenSize * 0.074
                                   : 0,
                             ),
-                            child: ChatPreviewWidget(
+                            child: ChatPreviewMobileWidget(
                               notifications: profileList[index].notifications,
                               avatarImage: profileList[index].avatarImage,
                               name: profileList[index].name,

@@ -22,12 +22,12 @@ class MessageSentDesktopWidget extends StatelessWidget {
       mainAxisSize: MainAxisSize.min,
       children: [
         Container(
-          height: screenSize * 0.165,
+          height: screenSize * 0.064453125,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.only(
-              topRight: Radius.circular(screenSize * 0.042),
-              topLeft: Radius.circular(screenSize * 0.042),
-              bottomLeft: Radius.circular(screenSize * 0.042),
+              topRight: Radius.circular(screenSize * 0.017578125),
+              topLeft: Radius.circular(screenSize * 0.017578125),
+              bottomLeft: Radius.circular(screenSize * 0.017578125),
             ),
             color: theme.sendMsg,
           ),
@@ -36,12 +36,12 @@ class MessageSentDesktopWidget extends StatelessWidget {
             children: [
               Row(
                 children: [
-                  SizedBox(width: screenSize * 0.048),
+                  SizedBox(width: screenSize * 0.01953125),
                   Text(
                     message,
                     style: textStyle.button,
                   ),
-                  SizedBox(width: screenSize * 0.048),
+                  SizedBox(width: screenSize * 0.01953125),
                 ],
               ),
             ],

@@ -17,18 +17,18 @@ class NotificationDesktopWidget extends StatelessWidget {
     final theme = Theme.of(context).extension<ThemeCustom>()!;
     final textStyle = Theme.of(context).textTheme;
     return Container(
-      height: screenSize * 0.053,
-      width: screenSize * 0.053,
+      height: screenSize * 0.021484375,
+      width: screenSize * 0.021484375,
       decoration: BoxDecoration(
         color: activeNotification
             ? theme.notificationColorOn
             : theme.notificationColorOff,
-        borderRadius: BorderRadius.circular(screenSize * 0.026),
+        borderRadius: BorderRadius.circular(screenSize * 01171875),
       ),
       child: Center(
         child: Text(
           notification.toString(),
-          style: textStyle.overline,
+          style: textStyle.caption,
         ),
       ),
     );

@@ -1,5 +1,6 @@
 import 'package:design_system/design_system.dart';
 import 'package:flutter/material.dart';
+
 class FilterButtonDesktopWidget extends StatefulWidget {
   final String text;
   final IconData icon;
@@ -53,12 +54,6 @@ class _FilterButtonDesktopWidgetState extends State<FilterButtonDesktopWidget> {
                   : theme.notificationColorOff,
             ),
             SizedBox(width: widget.screenSize * 0.013671875),
-            Text(
-              widget.text,
-              style: wasPressed
-                  ? theme.buttonTextOnStyle
-                  : theme.buttonTestOffStyle,
-            ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [

@@ -12,11 +12,11 @@ class AvatarChatDesktopWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: screenSize * 0.064,
-      width: screenSize * 0.064,
+      height: screenSize * 0.025390625,
+      width: screenSize *  0.025390625,
       child: CircleAvatar(
         backgroundImage: AssetImage(avatarImage),
-        radius: screenSize * 0.032,
+        radius: screenSize * 0.013671875,
       ),
     );
   }

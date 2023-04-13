@@ -33,126 +33,119 @@ class ProfileCardDesktopWidget extends StatelessWidget {
         ),
         color: theme.profileCardTheme,
       ),
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          SizedBox(height: screenSize * 0.133),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              AvatarDesktopWidget(
-                avatarImage: avatarImage,
-                screenSize: screenSize,
-              ),
-              Column(
-                children: [
-                  SizedBox(height: screenSize * 0.026),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(
-                        name,
-                        style: textStyle.bodyText1,
-                      ),
-                      SizedBox(width: screenSize * 0.0106),
-                      OnlineStatusWidget(
-                        isOnline: isOnline,
-                        screenSize: screenSize * 0.026,
-                      ),
-                    ],
-                  ),
-                  SizedBox(height: screenSize * 0.037),
-                  Text(
-                    number,
-                    style: textStyle.subtitle2,
-                  ),
-                ],
-              )
-            ],
-          ),
-          SizedBox(height: screenSize * 0.048),
-          Row(
-            children: [
-              SizedBox(
-                width: screenSize * 0.112,
-              ),
-              ProfileButtonsWidget(
-                icon: CustomIcon.callingIcon,
-                buttonSize: screenSize * 0.16,
-                iconSize: screenSize * 0.058,
-                borderRadius: screenSize * 0.04,
-                active: true,
-              ),
-              SizedBox(width: screenSize * 0.04),
-              ProfileButtonsWidget(
-                icon: CustomIcon.videoCallIcon,
-                buttonSize: screenSize * 0.16,
-                iconSize: screenSize * 0.058,
-                active: true,
-                borderRadius: screenSize * 0.04,
-              ),
-              SizedBox(width: screenSize * 0.04),
-              ProfileButtonsWidget(
-                icon: CustomIcon.volumeMuteIcon,
-                buttonSize: screenSize * 0.16,
-                iconSize: screenSize * 0.058,
-                active: true,
-                borderRadius: screenSize * 0.04,
-              ),
-              SizedBox(width: screenSize * 0.04),
-              ProfileButtonsWidget(
-                icon: CustomIcon.suitcaseOutlineIcon,
-                buttonSize: screenSize * 0.16,
-                iconSize: screenSize * 0.058,
-                borderRadius: screenSize * 0.04,
-                active: false,
-              ),
-            ],
-          ),
-          SizedBox(height: screenSize * 0.037),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              SizedBox(height: screenSize * 0.010),
-              Text(
-                status,
-                style: textStyle.caption,
-              ),
-              SizedBox(width: screenSize * 0.016),
-              Icon(
-                CustomIcon.handWaveIcon,
-                size: screenSize * 0.048,
-                color: Colors.amber,
-              ),
-            ],
-          ),
-          SizedBox(height: screenSize * 0.026),
-          Text(
-            'Our company are looking for:',
-            style: textStyle.subtitle2,
-          ),
-          SizedBox(height: screenSize * 0.037),
-          SizedBox(
-            width: screenSize * 0.60,
-            child: Wrap(
-              alignment: WrapAlignment.center,
-              spacing: screenSize * 0.021,
-              runSpacing: screenSize * 0.021,
-              children: List.generate(
-                skills.length,
-                (index) {
-                  return ProfileSkillsDesktopWidget(
-                    backgroundColor: skills[index].color,
-                    title: skills[index].skill,
-                    screenSize: screenSize,
-                  );
-                },
+      child: Padding(
+        padding: EdgeInsets.only(
+          top: screenSize * 0.017578125,
+          bottom: screenSize * 0.01953125,
+          left: screenSize * 0.017578125,
+        ),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                AvatarDesktopWidget(
+                  avatarImage: avatarImage,
+                  screenSize: screenSize,
+                ),
+                SizedBox(width: screenSize * 0.009765625),
+                Column(
+                  children: [
+                    SizedBox(height: screenSize * 0.00390625),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          name,
+                          style: textStyle.bodyText1,
+                        ),
+                        SizedBox(width: screenSize * 0.00390625),
+                        OnlineStatusWidget(
+                          isOnline: isOnline,
+                          screenSize: screenSize * 0.009765625,
+                        ),
+                      ],
+                    ),
+                    SizedBox(height: screenSize * 0.0078125),
+                    Text(
+                      number,
+                      style: textStyle.subtitle1,
+                    ),
+                  ],
+                )
+              ],
+            ),
+            SizedBox(height: screenSize * 0.013671875),
+            Row(
+              children: [
+                ProfileButtonsMobileWidget(
+                  icon: CustomIcon.callingIcon,
+                  active: true,
+                  screenSize: screenSize,
+                ),
+                SizedBox(width: screenSize * 0009765625),
+                ProfileButtonsMobileWidget(
+                  icon: CustomIcon.videoCallIcon,
+                  active: true,
+                  screenSize: screenSize,
+                ),
+                SizedBox(width: screenSize * 0009765625),
+                ProfileButtonsMobileWidget(
+                  icon: CustomIcon.volumeMuteIcon,
+                  active: true,
+                  screenSize: screenSize,
+                ),
+                SizedBox(width: screenSize * 0009765625),
+                ProfileButtonsMobileWidget(
+                  icon: CustomIcon.suitcaseOutlineIcon,
+                  active: false,
+                  screenSize: screenSize,
+                ),
+              ],
+            ),
+            SizedBox(height: screenSize * 0.015625),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  status,
+                  style: textStyle.caption,
+                ),
+                SizedBox(width: screenSize * 0.00390625),
+                Icon(
+                  CustomIcon.handWaveIcon,
+                  size: screenSize * 0.015625,
+                  color: Colors.amber,
+                ),
+              ],
+            ),
+            SizedBox(height: screenSize * 0.009765625),
+            Text(
+              'Our company are looking for:',
+              style: textStyle.caption,
+            ),
+            SizedBox(height: screenSize * 0.01953125),
+            SizedBox(
+              width: screenSize * 0.0859375,
+              child: Wrap(
+                spacing: screenSize * 0.009765625,
+                runSpacing: screenSize * 0.009765625,
+                children: List.generate(
+                  skills.length,
+                  (index) {
+                    return ProfileSkillsDesktopWidget(
+                      backgroundColor: skills[index].color,
+                      title: skills[index].skill,
+                      screenSize: screenSize,
+                    );
+                  },
+                ),
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

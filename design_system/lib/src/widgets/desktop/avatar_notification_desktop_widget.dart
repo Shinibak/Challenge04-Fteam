@@ -17,23 +17,18 @@ class AvatarNotificationDesktopWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     return Stack(
       children: [
         SizedBox(
-          height: screenSize * 0.117,
-          width: screenSize * 0.117,
+          height: screenSize * 0.044921875,
+          width: screenSize * 0.044921875,
         ),
         Positioned(
           left: 0,
           top: 0,
-          child: SizedBox(
-            height: screenSize * 0.106,
-            width: screenSize * 0.106,
-            child: CircleAvatar(
-              backgroundImage: AssetImage(avatarImage),
-              radius: screenSize * 0.053,
-            ),
+          child: AvatarDesktopWidget(
+            avatarImage: avatarImage,
+            screenSize: screenSize,
           ),
         ),
         Positioned(
