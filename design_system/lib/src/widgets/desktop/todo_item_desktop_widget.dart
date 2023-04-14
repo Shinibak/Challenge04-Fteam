@@ -61,43 +61,42 @@ class TodoItemDesktopWidget extends StatelessWidget {
         ],
       ),
       child: Container(
-        height: screenSize * 0.170,
-        width: screenSize * 0.901,
+        height: screenSize * 0.06640625,
+        width: screenSize * 0.234375,
         decoration: BoxDecoration(
           color: taskCompleted ? theme.todoColorOn : theme.todoColorOff,
-          borderRadius: BorderRadius.circular(screenSize * 0.048),
+          borderRadius: BorderRadius.circular(screenSize * 0.017578125),
         ),
-        child: Padding(
-          padding: EdgeInsets.only(top: screenSize * 0.032),
-          child: Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              SizedBox(width: screenSize * 0.032),
-              GestureDetector(
-                onTap: () => onChanged!(taskCompleted),
-                child: CheckBoxDesktopWidget(
-                  wasCheck: taskCompleted,
-                  screenSize: screenSize,
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            SizedBox(width: screenSize * 0.013671875),
+            GestureDetector(
+              onTap: () => onChanged!(taskCompleted),
+              child: CheckBoxDesktopWidget(
+                wasCheck: taskCompleted,
+                screenSize: screenSize,
+              ),
+            ),
+            SizedBox(width: screenSize * 0.01171875),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                  SizedBox(height: screenSize * 0.015625),
+                Text(
+                  taskName,
+                  style: textStyle.bodyText2,
                 ),
-              ),
-              SizedBox(width: screenSize * 0.037),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    taskName,
-                    style: textStyle.bodyText2,
-                  ),
-                  SizedBox(height: screenSize * 0.026),
-                  Text(
-                    '''
+                SizedBox(height: screenSize * 0.0078125),
+                Text(
+                  '''
 ${month.format(todoData)} ${todoData.day}, ${todoData.year} ${todoData.hour}:${todoData.minute} $period''',
-                    style: style,
-                  ),
-                ],
-              ),
-            ],
-          ),
+                  style: style,
+                ),
+                  SizedBox(height: screenSize * 0.015625),
+              ],
+            ),
+          ],
         ),
       ),
     );

@@ -11,47 +11,55 @@ class TextBarDesktopWidget extends StatelessWidget {
     final iconColor = Theme.of(context).iconTheme.color;
 
     return Container(
-      width: screenSize * 0.898,
-      height: screenSize * 0.154,
+      width: screenSize * 0.5292968758,
+      height: screenSize * 0.0625,
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(screenSize * 0.042),
-        color:theme.backOpacity,
+        borderRadius: BorderRadius.circular(screenSize * 0.017578125),
+        color: theme.backOpacity,
       ),
       child: Row(
+        mainAxisAlignment: MainAxisAlignment.end,
         children: [
-          SizedBox(width: screenSize * 0.048),
-          SizedBox(
-            width: screenSize * 0.469,
-            child: const Text(''),
-          ),
-          SizedBox(width: screenSize * 0.064),
           Icon(
             CustomIcon.happyIcon,
             color: iconColor,
-            size: screenSize * 0.058,
+            size: screenSize * 0.0234375,
           ),
-          SizedBox(width: screenSize * 0.026),
+          SizedBox(width: screenSize * 0.009765625),
           Icon(
             CustomIcon.paperClipIcon,
             color: iconColor,
-            size: screenSize * 0.058,
+            size: screenSize * 0.0234375,
           ),
-          SizedBox(width: screenSize * 0.0373),
+          SizedBox(width: screenSize * 0.009765625),
+          Icon(
+            CustomIcon.imagePhotographyIcon,
+            color: iconColor,
+            size: screenSize * 0.0234375,
+          ),
+          SizedBox(width: screenSize * 0.009765625),
+          Icon(
+            Icons.voicemail,
+            color: iconColor,
+            size: screenSize * 0.0234375,
+          ),
+          SizedBox(width: screenSize * 0.021484375),
           Container(
-            height: screenSize * 0.106,
-            width: screenSize * 0.106,
+            height: screenSize * 0.041015625,
+            width: screenSize * 0.041015625,
             decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(screenSize * 0.042),
+              borderRadius: BorderRadius.circular(screenSize * 0.013671875),
               color: theme.buttonColorOn,
             ),
             child: Center(
               child: Icon(
                 CustomIcon.sentIcon,
-                size: screenSize * 0.053,
+                size: screenSize * 0.01953125,
                 color: theme.back,
               ),
             ),
           ),
+          SizedBox(width: screenSize * 0.009765625),
         ],
       ),
     );

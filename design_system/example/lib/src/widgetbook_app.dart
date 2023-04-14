@@ -122,22 +122,18 @@ class WidgetbookApp extends StatelessWidget {
               useCases: [
                 WidgetbookUseCase(
                   name: 'profile button true',
-                  builder: (context) => ProfileButtonsWidget(
+                  builder: (context) => ProfileButtonsMobileWidget(
                     icon: CustomIcon.volumeMuteIcon,
                     active: true,
-                    buttonSize: screenSize * 0.16,
-                    iconSize: screenSize * 0.058,
-                    borderRadius: screenSize * 0.04,
+                    screenSize: screenSize,
                   ),
                 ),
                 WidgetbookUseCase(
                   name: 'profile button False',
-                  builder: (context) => ProfileButtonsWidget(
+                  builder: (context) => ProfileButtonsMobileWidget(
                     icon: CustomIcon.volumeMuteIcon,
                     active: false,
-                    buttonSize: screenSize * 0.16,
-                    iconSize: screenSize * 0.058,
-                    borderRadius: screenSize * 0.04,
+                    screenSize: screenSize,
                   ),
                 ),
               ],
