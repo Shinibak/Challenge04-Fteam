@@ -1,11 +1,11 @@
+import 'package:design_system/design_system.dart';
 import 'package:flutter/material.dart';
-import '../themes/theme_extensions.dart';
 
-class NotificationWidget extends StatelessWidget {
+class NotificationDesktopWidget extends StatelessWidget {
   final int notification;
   final bool activeNotification;
   final double screenSize;
-  const NotificationWidget({
+  const NotificationDesktopWidget({
     super.key,
     required this.notification,
     required this.activeNotification,
@@ -17,18 +17,18 @@ class NotificationWidget extends StatelessWidget {
     final theme = Theme.of(context).extension<ThemeCustom>()!;
     final textStyle = Theme.of(context).textTheme;
     return Container(
-      height: screenSize * 0.053,
-      width: screenSize * 0.053,
+      height: screenSize * 0.021484375,
+      width: screenSize * 0.021484375,
       decoration: BoxDecoration(
         color: activeNotification
             ? theme.notificationColorOn
             : theme.notificationColorOff,
-        borderRadius: BorderRadius.circular(screenSize * 0.026),
+        borderRadius: BorderRadius.circular(screenSize * 01171875),
       ),
       child: Center(
         child: Text(
           notification.toString(),
-          style: textStyle.overline,
+          style: textStyle.caption,
         ),
       ),
     );

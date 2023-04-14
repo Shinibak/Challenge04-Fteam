@@ -85,4 +85,32 @@ class CustomIcon {
     0xe817,
     fontFamily: _kFontFam,
   );
+  static const IconData imagePhotographyIcon = IconData(
+    0xe819,
+    fontFamily: _kFontFam,
+  );
+  static const IconData notificationBellIcon = IconData(
+    0xe81a,
+    fontFamily: _kFontFam,
+  );
+  static const IconData phoneOutlineIcon = IconData(
+    0xe81b,
+    fontFamily: _kFontFam,
+  );
+  static const IconData banSignIcon = IconData(
+    0xe81c,
+    fontFamily: _kFontFam,
+  );
+  static const IconData sunIcon = IconData(
+    0xe81d,
+    fontFamily: _kFontFam,
+  );
+  static const IconData moonLineIcon = IconData(
+    0xe81e,
+    fontFamily: _kFontFam,
+  );
+  static const IconData recycleBinLineIcon = IconData(
+    0xe81f,
+    fontFamily: _kFontFam,
+  );
 }

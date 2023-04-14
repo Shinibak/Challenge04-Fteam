@@ -1,11 +1,11 @@
+import 'package:design_system/design_system.dart';
 import 'package:flutter/material.dart';
-import '../../design_system.dart';
 
-class CheckBoxWidget extends StatelessWidget {
+class CheckBoxMobileWidget extends StatelessWidget {
   final bool wasCheck;
   final double screenSize;
 
-  const CheckBoxWidget({
+  const CheckBoxMobileWidget({
     super.key,
     required this.wasCheck,
     required this.screenSize,

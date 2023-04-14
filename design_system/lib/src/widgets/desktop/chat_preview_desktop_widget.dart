@@ -2,7 +2,7 @@ import 'package:design_system/design_system.dart';
 import 'package:flutter/material.dart';
 
 // ignore: camel_case_types
-class ChatPreviewWidget extends StatelessWidget {
+class ChatPreviewDesktopWidget extends StatelessWidget {
   final String avatarImage;
   final String name;
   final String number;
@@ -12,7 +12,7 @@ class ChatPreviewWidget extends StatelessWidget {
   final int notifications;
   final bool online;
   final double screenSize;
-  const ChatPreviewWidget({
+  const ChatPreviewDesktopWidget({
     super.key,
     required this.notifications,
     required this.avatarImage,
@@ -31,14 +31,14 @@ class ChatPreviewWidget extends StatelessWidget {
     final text = Theme.of(context).textTheme;
 
     return SizedBox(
-      height: screenSize * 0.186,
-      width: screenSize * 0.901,
+      height: screenSize * 0.09375,
+      width: screenSize * 0.265625,
       child: Row(
         children: [
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              AvatarNotificationWidget(
+              AvatarNotificationMobileWidget(
                 screenSize: screenSize,
                 avatarImage: avatarImage,
                 notifications: notifications,

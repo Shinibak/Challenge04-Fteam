@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-class AvatarTodoListWidget extends StatelessWidget {
+class AvatarMobileWidget extends StatelessWidget {
   final String avatarImage;
   final double screenSize;
-  const AvatarTodoListWidget({
+  const AvatarMobileWidget({
     super.key,
     required this.avatarImage,
     required this.screenSize,

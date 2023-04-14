@@ -15,11 +15,11 @@ class OnlineStatusWidget extends StatelessWidget {
     final theme = Theme.of(context).extension<ThemeCustom>()!;
 
     return Container(
-      height: screenSize * 0.026,
-      width: screenSize * 0.026,
+      height: screenSize,
+      width: screenSize,
       decoration: BoxDecoration(
         color: isOnline ? theme.onlineColor : theme.offColor,
-        borderRadius: BorderRadius.circular(screenSize * 0.021),
+        borderRadius: BorderRadius.circular(screenSize),
       ),
     );
   }

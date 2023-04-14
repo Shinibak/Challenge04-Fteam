@@ -1,9 +1,9 @@
+import 'package:design_system/design_system.dart';
 import 'package:flutter/material.dart';
-import '../themes/theme_extensions.dart';
 
-class SearchWidget extends StatelessWidget {
+class SearchMobileWidget extends StatelessWidget {
   final double screenSize;
-  const SearchWidget({super.key, required this.screenSize});
+  const SearchMobileWidget({super.key, required this.screenSize});
 
   @override
   Widget build(BuildContext context) {

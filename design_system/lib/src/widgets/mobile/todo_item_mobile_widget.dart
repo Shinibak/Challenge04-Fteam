@@ -1,19 +1,21 @@
-import 'package:design_system/src/widgets/check_box_widget.dart';
+import 'package:design_system/design_system.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:intl/intl.dart';
-import '../themes/theme_extensions.dart';
+
+import 'check_box_mobile_widget.dart';
 
 // ignore: must_be_immutable
-class TodoItemWidget extends StatelessWidget {
+class TodoItemMobileWidget extends StatelessWidget {
   final String taskName;
   final String date;
   final double screenSize;
   final bool taskCompleted;
   Function(bool)? onChanged;
   Function(BuildContext)? deletedFunction;
+  final bool validate;
 
-  TodoItemWidget({
+  TodoItemMobileWidget({
     super.key,
     required this.taskName,
     required this.date,
@@ -21,6 +23,7 @@ class TodoItemWidget extends StatelessWidget {
     required this.taskCompleted,
     required this.onChanged,
     required this.deletedFunction,
+    required this.validate,
   });
 
   @override
@@ -29,40 +32,12 @@ class TodoItemWidget extends StatelessWidget {
     final theme = Theme.of(context).extension<ThemeCustom>()!;
     late final String period;
     final month = DateFormat('MMM');
-    final dateTime = DateTime.now();
     late TextStyle style;
-    late bool validate;
     final todoData = DateTime.parse(date);
     if (todoData.hour > 12) {
       period = 'PM';
     } else {
       period = 'AM';
-    }
-
-    if (todoData.year <= dateTime.year) {
-      if (todoData.month < dateTime.month) {
-        validate = true;
-      } else if (todoData.month == dateTime.month) {
-        if (todoData.day <= dateTime.day) {
-          if (todoData.hour < dateTime.hour) {
-            validate = true;
-          } else if (todoData.hour == dateTime.hour) {
-            if (todoData.minute < dateTime.minute) {
-              validate = true;
-            } else {
-              validate = false;
-            }
-          } else {
-            validate = false;
-          }
-        } else {
-          validate = false;
-        }
-      } else {
-        validate = false;
-      }
-    } else {
-      validate = false;
     }
 
     if (validate) {
@@ -101,7 +76,7 @@ class TodoItemWidget extends StatelessWidget {
               SizedBox(width: screenSize * 0.032),
               GestureDetector(
                 onTap: () => onChanged!(taskCompleted),
-                child: CheckBoxWidget(
+                child: CheckBoxMobileWidget(
                   wasCheck: taskCompleted,
                   screenSize: screenSize,
                 ),

@@ -67,7 +67,7 @@ class _ProfilePageState extends State<ProfilePage> {
                         bottom: screenSize * 0.026,
                         left: screenSize * 0.048,
                       ),
-                      child: TodoItemWidget(
+                      child: TodoItemMobileWidget(
                         taskName: controller.returnToDoList()[index].taskTodo,
                         date: controller.returnToDoList()[index].dateTodo,
                         taskCompleted:
@@ -77,6 +77,10 @@ class _ProfilePageState extends State<ProfilePage> {
                             controller.checkBoxChanged(value, index),
                         deletedFunction: (context) =>
                             controller.deletedTask(index),
+                        validate: controller.validarData(
+                          DateTime.parse(
+                              controller.returnToDoList()[index].dateTodo),
+                        ),
                       ),
                     );
                   },

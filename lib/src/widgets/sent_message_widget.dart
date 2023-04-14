@@ -35,7 +35,7 @@ class SentMessageWidget extends StatelessWidget {
                 padding: EdgeInsets.only(
                   bottom: screenSize * 0.021,
                 ),
-                child: MessageSentWidget(
+                child: MessageSentMobileWidget(
                   message: messages[index],
                   screenSize: screenSize,
                 ),

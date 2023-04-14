@@ -84,10 +84,11 @@ class _TodoFormListState extends State<TodoFormList> {
             child: Form(
               key: _formKey,
               child: SizedBox(
-                width: widget.screenSize * 0.8,
+                width: widget.screenSize * 0.9,
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [
+                    SizedBox(width: widget.screenSize * 0.01),
                     Row(
                       mainAxisSize: MainAxisSize.min,
                       children: [
@@ -102,6 +103,7 @@ class _TodoFormListState extends State<TodoFormList> {
                             },
                           ),
                         ),
+                        SizedBox(width: widget.screenSize * 0.01),
                         ElevatedButton(
                           style: ButtonStyle(
                             backgroundColor: MaterialStateProperty.all<Color>(
@@ -129,6 +131,7 @@ class _TodoFormListState extends State<TodoFormList> {
                                 : theme.buttonError,
                           ),
                         ),
+                        SizedBox(width: widget.screenSize * 0.01),
                         ElevatedButton(
                           style: ButtonStyle(
                             backgroundColor: MaterialStateProperty.all<Color>(
@@ -161,8 +164,9 @@ class _TodoFormListState extends State<TodoFormList> {
                         'Hora invalida',
                         style: TextStyle(
                           color: theme.deleted,
-                    ),
+                        ),
                       ),
+                    SizedBox(height: widget.screenSize * 0.01),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
@@ -201,6 +205,7 @@ class _TodoFormListState extends State<TodoFormList> {
                         ),
                       ],
                     ),
+                    SizedBox(height: widget.screenSize * 0.01),
                   ],
                 ),
               ),

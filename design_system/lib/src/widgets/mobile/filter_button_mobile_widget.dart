@@ -1,15 +1,14 @@
-import 'package:design_system/src/widgets/notification_widget.dart';
+import 'package:design_system/design_system.dart';
 import 'package:flutter/material.dart';
-import '../themes/theme_extensions.dart';
 
-class FilterButtonWidget extends StatefulWidget {
+class FilterButtonMobileWidget extends StatefulWidget {
   final String text;
   final IconData icon;
   final int notifications;
   final bool active;
   final double screenSize;
 
-  const FilterButtonWidget({
+  const FilterButtonMobileWidget({
     super.key,
     required this.text,
     required this.icon,
@@ -19,10 +18,11 @@ class FilterButtonWidget extends StatefulWidget {
   });
 
   @override
-  State<FilterButtonWidget> createState() => _FilterButtonWidgetState();
+  State<FilterButtonMobileWidget> createState() =>
+      _FilterButtonMobileWidgetState();
 }
 
-class _FilterButtonWidgetState extends State<FilterButtonWidget> {
+class _FilterButtonMobileWidgetState extends State<FilterButtonMobileWidget> {
   late bool wasPressed = widget.active;
 
   @override
@@ -69,7 +69,7 @@ class _FilterButtonWidgetState extends State<FilterButtonWidget> {
             SizedBox(
               width: widget.screenSize * 0.0106,
             ),
-            NotificationWidget(
+            NotificationMobileWidget(
               notification: widget.notifications,
               activeNotification: wasPressed,
               screenSize: widget.screenSize,
