@@ -27,16 +27,10 @@ ThemeData get lightTheme => ThemeData(
           buttonColorOff: Colors.transparent,
           notificationColorOn: Colors.blue,
           notificationColorOff: Colors.grey,
-          buttonTextOnStyle: const TextStyle(fontSize: 14, color: Colors.white),
-          buttonTestOffStyle:
-              const TextStyle(fontSize: 14, color: Colors.black),
           buttonIconColorOn: Colors.white,
           buttonIconColorOff: Colors.black,
           mutedIcon: Colors.red,
           todoColorOn: Colors.blueAccent,
-          todoColorOff: const Color.fromARGB(255, 9, 111, 194),
-          lateStyle: const TextStyle(fontSize: 10, color: Colors.red),
-          buttonError: const TextStyle(fontSize: 16, color: Colors.red),
           profileButton: const Color(0xff6963db),
           profileCardTheme: const Color(0xff5d55d0),
           onlineColor: const Color(0xffa4d43c),
@@ -44,8 +38,21 @@ ThemeData get lightTheme => ThemeData(
           sendMsg: const Color(0xffb783f2),
           receivedMsg: const Color(0xff15161a),
           backOpacity: Colors.black.withOpacity(0.7),
-          back: Colors.black,
+          back: Colors.white,
           deleted: Colors.red,
+          todoColorOff: const Color.fromARGB(255, 9, 111, 194),
+          lateStyle: const TextStyle(fontSize: 10, color: Colors.red),
+          buttonError: const TextStyle(fontSize: 16, color: Colors.red),
+          buttonTextOnStyle: const TextStyle(
+            fontSize: 14,
+            color: Colors.white,
+          ),
+          buttonTextOffStyle:
+              const TextStyle(fontSize: 14, color: Colors.black),
+          buttonMenuTextOnStyle:
+              const TextStyle(fontSize: 14, color: Colors.blue),
+          buttonMenuTextOffStyle:
+              const TextStyle(fontSize: 14, color: Colors.black),
         ),
       ],
     );

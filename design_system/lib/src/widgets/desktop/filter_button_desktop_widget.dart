@@ -43,7 +43,6 @@ class _FilterButtonDesktopWidgetState extends State<FilterButtonDesktopWidget> {
           });
         },
         child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             SizedBox(width: widget.screenSize * 0.01953125),
             Icon(
@@ -54,23 +53,22 @@ class _FilterButtonDesktopWidgetState extends State<FilterButtonDesktopWidget> {
                   : theme.notificationColorOff,
             ),
             SizedBox(width: widget.screenSize * 0.013671875),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  widget.text,
-                  style: wasPressed
-                      ? theme.buttonTextOnStyle
-                      : theme.buttonTestOffStyle,
-                ),
-                Text(
-                  '${widget.notifications}',
-                  style: wasPressed
-                      ? theme.buttonTextOnStyle
-                      : theme.buttonTestOffStyle,
-                ),
-              ],
+            Text(
+              widget.text,
+              style: wasPressed
+                  ? theme.buttonTextOnStyle
+                  : theme.buttonTextOffStyle,
             ),
+            const Expanded(
+              child: SizedBox(),
+            ),
+            if (widget.notifications > 0)
+              Text(
+                '${widget.notifications}',
+                style: wasPressed
+                    ? theme.buttonTextOnStyle
+                    : theme.buttonTextOffStyle,
+              ),
             SizedBox(width: widget.screenSize * 0.01953125),
           ],
         ),

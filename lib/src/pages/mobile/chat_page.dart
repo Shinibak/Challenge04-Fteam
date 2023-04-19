@@ -1,8 +1,8 @@
-import 'package:challenge04_fteam/src/widgets/app_bar_chat_widget.dart';
-import 'package:challenge04_fteam/src/widgets/chat_list_widget.dart';
+import 'package:challenge04_fteam/src/widgets/Mobile/app_bar_chat_mobile_widget.dart';
+import 'package:challenge04_fteam/src/widgets/Mobile/chat_list_mobile_widget.dart';
 import 'package:design_system/design_system.dart';
 import 'package:flutter/material.dart';
-import '../models/profile_model.dart';
+import '../../models/profile_model.dart';
 
 class ChatPage extends StatelessWidget {
   const ChatPage({super.key});
@@ -18,11 +18,14 @@ class ChatPage extends StatelessWidget {
           Expanded(
             child: Column(
               children: [
-                AppBarChatWidget(
+                AppBarChatMobileWidget(
                   profile: profile,
                   screenSize: screenSize,
                 ),
-                ChatListWidget(profile: profile),
+                ChatListMobileWidget(
+                  profile: profile,
+                  screenSize: screenSize,
+                ),
               ],
             ),
           ),

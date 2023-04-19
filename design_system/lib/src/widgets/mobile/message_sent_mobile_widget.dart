@@ -13,7 +13,6 @@ class MessageSentMobileWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final textStyle = Theme.of(context).textTheme;
-    
     final theme = Theme.of(context).extension<ThemeCustom>()!;
   
     return Row(

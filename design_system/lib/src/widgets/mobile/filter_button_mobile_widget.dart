@@ -64,7 +64,7 @@ class _FilterButtonMobileWidgetState extends State<FilterButtonMobileWidget> {
               widget.text,
               style: wasPressed
                   ? theme.buttonTextOnStyle
-                  : theme.buttonTestOffStyle,
+                  : theme.buttonTextOffStyle,
             ),
             SizedBox(
               width: widget.screenSize * 0.0106,

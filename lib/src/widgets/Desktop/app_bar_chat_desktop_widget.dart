@@ -2,11 +2,11 @@ import 'package:challenge04_fteam/src/models/profile_model.dart';
 import 'package:design_system/design_system.dart';
 import 'package:flutter/material.dart';
 
-class AppBarChatWidget extends StatelessWidget {
+class AppBarChatDesktopWidget extends StatelessWidget {
   final ProfileModel profile;
   final double screenSize;
 
-  const AppBarChatWidget({
+  const AppBarChatDesktopWidget({
     super.key,
     required this.profile,
     required this.screenSize,
@@ -18,8 +18,10 @@ class AppBarChatWidget extends StatelessWidget {
 
     return Container(
       height: screenSize * 0.261,
-      width: screenSize,
-      decoration: const BoxDecoration(
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.vertical(
+          top: Radius.circular(screenSize * 0.01953125),
+        ),
         color: Colors.black,
       ),
       child: Column(

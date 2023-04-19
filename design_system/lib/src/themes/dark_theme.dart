@@ -5,11 +5,13 @@ ThemeData get darkTheme => ThemeData(
       useMaterial3: true,
       primaryColor: const Color(0xff20232a),
       scaffoldBackgroundColor: const Color(0xff1f222a),
+      backgroundColor: const Color(0xff1f222a),
       iconTheme: const IconThemeData(color: Colors.white),
       floatingActionButtonTheme: const FloatingActionButtonThemeData(
-       backgroundColor: Color(0xff6963db),
+        backgroundColor: Color(0xff6963db),
       ),
       textTheme: const TextTheme(
+        headline5: TextStyle(fontSize: 18, color: Colors.white),
         headline6: TextStyle(fontSize: 10, color: Colors.white),
         button: TextStyle(fontSize: 14, color: Colors.white),
         bodyText1: TextStyle(
@@ -34,7 +36,7 @@ ThemeData get darkTheme => ThemeData(
           notificationColorOn: const Color(0xff5650c8),
           notificationColorOff: const Color.fromARGB(255, 80, 80, 80),
           buttonTextOnStyle: const TextStyle(fontSize: 14, color: Colors.black),
-          buttonTestOffStyle:
+          buttonTextOffStyle:
               const TextStyle(fontSize: 14, color: Colors.white),
           buttonIconColorOn: Colors.black,
           buttonIconColorOff: Colors.white,
@@ -52,6 +54,10 @@ ThemeData get darkTheme => ThemeData(
           backOpacity: Colors.black.withOpacity(0.7),
           back: Colors.black,
           deleted: Colors.red,
+          buttonMenuTextOnStyle:
+              const TextStyle(fontSize: 14, color: Color(0xfff1fa88)),
+          buttonMenuTextOffStyle:
+              const TextStyle(fontSize: 14, color: Colors.white),
         ),
       ],
     );

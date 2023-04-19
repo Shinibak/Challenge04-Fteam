@@ -6,9 +6,7 @@ abstract class ILocalStorageService {
 }
 
 class HiveLocalStorageService implements ILocalStorageService {
-  final Box _box;
-
-  HiveLocalStorageService(this._box);
+  final Box _box= Hive.box('myBox');
 
   @override
   Future put(String url, String toDo) async {

@@ -1,8 +1,8 @@
 import 'package:design_system/design_system.dart';
 import 'package:flutter/material.dart';
-import 'pages/chat_page.dart';
-import 'pages/profile_page.dart';
-import 'pages/view_chat_page.dart';
+import 'pages/mobile/chat_page.dart';
+import 'pages/home_page.dart';
+import 'pages/mobile/profile_page.dart';
 
 class AppWidget extends StatelessWidget {
   const AppWidget({super.key});
@@ -18,7 +18,7 @@ class AppWidget extends StatelessWidget {
       darkTheme: darkTheme,
       initialRoute: '/',
       routes: {
-        '/': (context) => const ViewChatPage(),
+        '/': (context) => const HomePage(),
         '/two': (context) => const ChatPage(),
         '/tree': (context) => const ProfilePage(),
       },

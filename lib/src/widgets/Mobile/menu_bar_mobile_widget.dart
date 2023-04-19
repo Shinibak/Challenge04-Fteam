@@ -1,10 +1,10 @@
 import 'package:design_system/design_system.dart';
 import 'package:flutter/material.dart';
 
-class MenuBarWidget extends StatelessWidget {
+class MenuBarMobileWidget extends StatelessWidget {
   final List menuList;
   final double screenSize;
-  const MenuBarWidget({
+  const MenuBarMobileWidget({
     super.key,
     required this.menuList,
     required this.screenSize,

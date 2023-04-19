@@ -2,7 +2,7 @@ import 'package:design_system/design_system.dart';
 import 'package:flutter/material.dart';
 
 // ignore: camel_case_types
-class ChatPreviewDesktopWidget extends StatelessWidget {
+class ChatPreviewDesktopWidget extends StatefulWidget {
   final String avatarImage;
   final String name;
   final String number;
@@ -11,6 +11,7 @@ class ChatPreviewDesktopWidget extends StatelessWidget {
   final bool muted;
   final int notifications;
   final bool online;
+
   final double screenSize;
   const ChatPreviewDesktopWidget({
     super.key,
@@ -26,89 +27,101 @@ class ChatPreviewDesktopWidget extends StatelessWidget {
   });
 
   @override
+  State<ChatPreviewDesktopWidget> createState() =>
+      _ChatPreviewDesktopWidgetState();
+}
+
+class _ChatPreviewDesktopWidgetState extends State<ChatPreviewDesktopWidget> {
+  var wasPressed = false;
+
+  @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context).extension<ThemeCustom>()!;
     final text = Theme.of(context).textTheme;
 
-    return SizedBox(
-      height: screenSize * 0.09375,
-      width: screenSize * 0.265625,
-      child: Row(
-        children: [
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              AvatarNotificationMobileWidget(
-                screenSize: screenSize,
-                avatarImage: avatarImage,
-                notifications: notifications,
-                active: true,
-              )
-            ],
-          ),
-          SizedBox(width: screenSize * 0.042),
-          Expanded(
-            child: Column(
+    return GestureDetector(
+      onTap: () {
+        setState(
+          () {
+            wasPressed = !wasPressed;
+          },
+        );
+      },
+      child: Container(
+        height: widget.screenSize * 0.095703125,
+        width: widget.screenSize * 0.265625,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(widget.screenSize * 0.017578125),
+          color: wasPressed ? theme.todoColorOff : theme.offColor,
+        ),
+        child: Row(
+          children: [
+            SizedBox(width: widget.screenSize * 0.009765625),
+            Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                SizedBox(height: screenSize * 0.010),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Row(
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        Text(
-                          name,
-                          style: text.bodyText2,
-                        ),
-                        SizedBox(width: screenSize * 0.016),
-                        OnlineStatusWidget(
-                          isOnline: online,
-                          screenSize: screenSize,
-                        ),
-                      ],
-                    ),
-                    Text(
-                      lastMessageData,
-                      style: text.caption,
-                    ),
-                  ],
-                ),
-                SizedBox(height: screenSize * 0.026),
-                Row(
-                  children: [
-                    Text(number, style: text.bodySmall),
-                  ],
-                ),
-                // SizedBox(height: screenSize * 0.021),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Column(
-                      children: [
-                        SizedBox(height: screenSize * 0.0053),
-                        Text(
-                          lastMessage,
-                          style: text.bodyText1,
-                        ),
-                      ],
-                    ),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.end,
-                      children: [
-                        Icon(
-                          Icons.notifications_off_outlined,
-                          color: muted ? theme.mutedIcon : theme.buttonColorOff,
-                        ),
-                      ],
-                    )
-                  ],
-                ),
+                SizedBox(height: widget.screenSize * 0.013671875),
+                AvatarNotificationDesktopWidget(
+                  screenSize: widget.screenSize,
+                  avatarImage: widget.avatarImage,
+                  notifications: widget.notifications,
+                  active: true,
+                )
               ],
             ),
-          ),
-        ],
+            SizedBox(width: widget.screenSize * 0.015625),
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Row(
+                    children: [
+                      SizedBox(width: widget.screenSize * 0.099609375),
+                      Icon(
+                        Icons.notifications_off_outlined,
+                        color: widget.muted
+                            ? theme.mutedIcon
+                            : theme.buttonColorOff,
+                        size: widget.screenSize * 0.013671875,
+                      ),
+                    ],
+                  ),
+                  SizedBox(height: widget.screenSize * 0.001953125),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Row(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Text(
+                            widget.name,
+                            style: text.bodyText2,
+                          ),
+                          SizedBox(width: widget.screenSize * 0.00390625),
+                          OnlineStatusWidget(
+                            isOnline: widget.online,
+                            screenSize: widget.screenSize * 0.009765625,
+                          ),
+                        ],
+                      ),
+                      Text(
+                        widget.lastMessageData,
+                        style: text.caption,
+                      ),
+                    ],
+                  ),
+                  SizedBox(height: widget.screenSize * 0.009765625),
+                  Text(widget.number, style: text.caption),
+                  SizedBox(height: widget.screenSize * 0.013671875),
+                  Text(
+                    widget.lastMessage,
+                    style: text.subtitle2,
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

@@ -2,11 +2,11 @@ import 'package:challenge04_fteam/src/mockup/profiles_data.dart';
 import 'package:design_system/design_system.dart';
 import 'package:flutter/material.dart';
 
-class ExpandedListWidget extends StatefulWidget {
+class ExpandedListMobileWidget extends StatefulWidget {
   final String group;
   final bool active;
   final double screenSize;
-  const ExpandedListWidget({
+  const ExpandedListMobileWidget({
     super.key,
     required this.group,
     required this.active,
@@ -14,10 +14,10 @@ class ExpandedListWidget extends StatefulWidget {
   });
 
   @override
-  State<ExpandedListWidget> createState() => _ExpandedListWidgetState();
+  State<ExpandedListMobileWidget> createState() => _ExpandedListMobileWidgetState();
 }
 
-class _ExpandedListWidgetState extends State<ExpandedListWidget> {
+class _ExpandedListMobileWidgetState extends State<ExpandedListMobileWidget> {
   late bool wasPassed = widget.active;
   final profileList = profilesDataList;
 

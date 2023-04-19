@@ -1,14 +1,14 @@
 import 'package:challenge04_fteam/src/mockup/filters_data.dart';
-import 'package:challenge04_fteam/src/widgets/expanded_list_widget.dart';
+import 'package:challenge04_fteam/src/widgets/Mobile/expanded_list_mobile_widget.dart';
 import 'package:design_system/design_system.dart';
 import 'package:flutter/material.dart';
-import '../mockup/groups_data.dart';
-import '../mockup/menu_buttons_data.dart';
-import '../widgets/list_filter_button_widget.dart';
-import '../widgets/menu_bar_widget.dart';
+import '../../mockup/groups_data.dart';
+import '../../mockup/menu_buttons_data.dart';
+import '../../widgets/Mobile/list_filter_button_mobile_widget.dart';
+import '../../widgets/Mobile/menu_bar_mobile_widget.dart';
 
-class ViewChatPage extends StatelessWidget {
-  const ViewChatPage({super.key});
+class MobileHomePage extends StatelessWidget {
+  const MobileHomePage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -36,7 +36,7 @@ class ViewChatPage extends StatelessWidget {
                   ),
                   child: SizedBox(
                     height: screenSize * 0.117,
-                    child: ListFilterButtonWidget(
+                    child: ListFilterButtonMobileWidget(
                       filterList: filters,
                       screenSize: screenSize,
                     ),
@@ -54,7 +54,7 @@ class ViewChatPage extends StatelessWidget {
                           right: screenSize * 0.048,
                           bottom: screenSize * 0.069,
                         ),
-                        child: ExpandedListWidget(
+                        child: ExpandedListMobileWidget(
                           group: groups[index].text,
                           active: groups[index].active,
                           screenSize: screenSize,
@@ -68,7 +68,7 @@ class ViewChatPage extends StatelessWidget {
           ),
           Positioned(
             bottom: 0,
-            child: MenuBarWidget(
+            child: MenuBarMobileWidget(
               menuList: menu,
               screenSize: screenSize,
             ),

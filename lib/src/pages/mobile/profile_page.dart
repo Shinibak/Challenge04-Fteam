@@ -1,14 +1,13 @@
 import 'package:design_system/design_system.dart';
 import 'package:flutter/material.dart';
-import 'package:hive/hive.dart';
-import '../controllers/todo_controller.dart';
-import '../datasource/local_service/hive_local_storage_service.dart';
-import '../datasource/todo_get_datasource.dart';
-import '../datasource/todo_put_datasource.dart';
-import '../models/profile_model.dart';
-import '../repositories/todo_get_repository.dart';
-import '../repositories/todo_put_repository.dart';
-import '../widgets/todo_form.dart';
+import '../../controllers/todo_controller.dart';
+import '../../datasource/local_service/hive_local_storage_service.dart';
+import '../../datasource/todo_get_datasource.dart';
+import '../../datasource/todo_put_datasource.dart';
+import '../../models/profile_model.dart';
+import '../../repositories/todo_get_repository.dart';
+import '../../repositories/todo_put_repository.dart';
+import '../../widgets/todo_form.dart';
 
 class ProfilePage extends StatefulWidget {
   const ProfilePage({
@@ -23,18 +22,12 @@ class _ProfilePageState extends State<ProfilePage> {
   late TodoController controller;
 
   @override
-  void initState() {
-    super.initState();
-  }
-
-  @override
   Widget build(BuildContext context) {
     // ignore: cast_nullable_to_non_nullable
     final profile = ModalRoute.of(context)!.settings.arguments as ProfileModel;
     final screenSize = MediaQuery.of(context).size.width;
 
-    final myBox = Hive.box('myBox');
-    final hiveService = HiveLocalStorageService(myBox);
+    final hiveService = HiveLocalStorageService();
     final getDatasource = TodoGetDatasource(hiveService);
     final putDatasource = TodoPutDatasource(hiveService);
     final getRepository = TodoGetRepository(getDatasource);
