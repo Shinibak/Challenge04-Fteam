@@ -2,15 +2,19 @@ import 'package:challenge04_fteam/src/widgets/Mobile/app_bar_chat_mobile_widget.
 import 'package:challenge04_fteam/src/widgets/Mobile/chat_list_mobile_widget.dart';
 import 'package:design_system/design_system.dart';
 import 'package:flutter/material.dart';
-import '../../models/profile_model.dart';
+import 'package:provider/provider.dart';
+import '../../controllers/animated_chat_controller.dart';
 
 class ChatPage extends StatelessWidget {
-  const ChatPage({super.key});
+  ChatPage({super.key});
+
+
+  late AnimatedChatController controller;
 
   @override
   Widget build(BuildContext context) {
-    // ignore: cast_nullable_to_non_nullable
-    final profile = ModalRoute.of(context)!.settings.arguments as ProfileModel;
+     controller = context.watch<AnimatedChatController>();
+  
     final screenSize = MediaQuery.of(context).size.width;
     return Scaffold(
       body: Stack(
@@ -19,11 +23,11 @@ class ChatPage extends StatelessWidget {
             child: Column(
               children: [
                 AppBarChatMobileWidget(
-                  profile: profile,
+                  profile: controller.getProfile(),
                   screenSize: screenSize,
                 ),
                 ChatListMobileWidget(
-                  profile: profile,
+                  profile: controller.getProfile(),
                   screenSize: screenSize,
                 ),
               ],

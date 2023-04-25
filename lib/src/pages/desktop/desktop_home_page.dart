@@ -1,5 +1,7 @@
+import 'package:challenge04_fteam/src/controllers/animated_chat_controller.dart';
 import 'package:challenge04_fteam/src/widgets/Desktop/app_bar_desktop_widget.dart';
-import 'package:challenge04_fteam/src/widgets/desktop/chat_box_desktop_widget.dart';
+import 'package:challenge04_fteam/src/widgets/Desktop/groups_box_desktop_widget.dart';
+import 'package:challenge04_fteam/src/widgets/Desktop/open_chat_messages_desktop.dart';
 import 'package:design_system/design_system.dart';
 import 'package:flutter/material.dart';
 import '../../mockup/filters_data.dart';
@@ -11,8 +13,8 @@ class DesktopHomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = Theme.of(context).extension<ThemeCustom>()!;
     final screenSize = MediaQuery.of(context).size.height;
-
     final filters = filtersDataList;
+    final controller = AnimatedChatController();
 
     return Scaffold(
       body: Column(
@@ -51,8 +53,21 @@ class DesktopHomePage extends StatelessWidget {
                   Expanded(
                     child: Padding(
                       padding: EdgeInsets.only(top: screenSize * 0.001953125),
-                      child: ChatBoxDesktopWidget(
-                        screenSize: screenSize,
+                      child: Container(
+                        color: Theme.of(context).backgroundColor,
+                        child: Row(
+                          children: [
+                            GroupsBoxDesktopWidget(screenSize: screenSize),
+                            Padding(
+                              padding: EdgeInsets.only(
+                                top: screenSize * 0.02734375,
+                              ),
+                              child: OpenChatMessageWidget(
+                                screenSize: screenSize,
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
                     ),
                   ),

@@ -1,6 +1,9 @@
 import 'package:challenge04_fteam/src/mockup/profiles_data.dart';
 import 'package:design_system/design_system.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
+import '../../controllers/animated_chat_controller.dart';
 
 class ExpandedListMobileWidget extends StatefulWidget {
   final String group;
@@ -14,17 +17,19 @@ class ExpandedListMobileWidget extends StatefulWidget {
   });
 
   @override
-  State<ExpandedListMobileWidget> createState() => _ExpandedListMobileWidgetState();
+  State<ExpandedListMobileWidget> createState() =>
+      _ExpandedListMobileWidgetState();
 }
 
 class _ExpandedListMobileWidgetState extends State<ExpandedListMobileWidget> {
   late bool wasPassed = widget.active;
   final profileList = profilesDataList;
-
+  late AnimatedChatController controller;
   double turns = 0;
 
   @override
   Widget build(BuildContext context) {
+    controller = context.watch<AnimatedChatController>();
     final textStyle = Theme.of(context).textTheme;
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
@@ -77,8 +82,8 @@ class _ExpandedListMobileWidgetState extends State<ExpandedListMobileWidget> {
                     Navigator.pushNamed(
                       context,
                       '/two',
-                      arguments: profileList[index],
                     );
+                    controller.isOpenChat(profileList[index]);
                   },
                   child: Padding(
                     padding: EdgeInsets.only(

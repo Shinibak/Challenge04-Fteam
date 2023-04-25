@@ -4,11 +4,12 @@ import 'package:flutter/material.dart';
 class SentMessageDesktopWidget extends StatelessWidget {
   final String hours;
   final List messages;
-    final double screenSize;
+  final double screenSize;
   const SentMessageDesktopWidget({
     super.key,
     required this.hours,
-    required this.messages, required this.screenSize,
+    required this.messages,
+    required this.screenSize,
   });
 
   @override
@@ -18,9 +19,11 @@ class SentMessageDesktopWidget extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.end,
       children: [
-        Text(
-          hours,
-          style: textStyle.overline,
+        SizedBox(
+          child: Text(
+            hours,
+            style: textStyle.overline,
+          ),
         ),
         SizedBox(height: screenSize * 0.013671875),
         SizedBox(

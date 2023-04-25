@@ -68,7 +68,6 @@ class TodoItemDesktopWidget extends StatelessWidget {
           borderRadius: BorderRadius.circular(screenSize * 0.017578125),
         ),
         child: Row(
-          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             SizedBox(width: screenSize * 0.013671875),
             GestureDetector(
@@ -81,8 +80,8 @@ class TodoItemDesktopWidget extends StatelessWidget {
             SizedBox(width: screenSize * 0.01171875),
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                  SizedBox(height: screenSize * 0.015625),
                 Text(
                   taskName,
                   style: textStyle.bodyText2,
@@ -93,7 +92,6 @@ class TodoItemDesktopWidget extends StatelessWidget {
 ${month.format(todoData)} ${todoData.day}, ${todoData.year} ${todoData.hour}:${todoData.minute} $period''',
                   style: style,
                 ),
-                  SizedBox(height: screenSize * 0.015625),
               ],
             ),
           ],

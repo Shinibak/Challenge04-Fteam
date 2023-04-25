@@ -54,6 +54,7 @@ List<ProfileModel> profilesDataList = [
         color: Color(0xff8669ab),
       ),
     ],
+    group: 'From Team',
   ),
   ProfileModel(
     avatarImage: 'assets/avatar/john_wick2.jpg',
@@ -89,5 +90,17 @@ List<ProfileModel> profilesDataList = [
         color: Color(0xff89a2a9),
       ),
     ],
+    group: 'Unread',
   ),
+  ProfileModel(
+      avatarImage: 'assets/avatar/avatar.jpg',
+      isMuted: false,
+      name: 'Jonh',
+      number: '(1) 99872-4535',
+      isOnline: true,
+      status: 'Lapis',
+      notifications: 1,
+      messages: [],
+      skills: [],
+      group: ''),
 ];

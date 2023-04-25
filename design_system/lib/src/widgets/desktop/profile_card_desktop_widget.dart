@@ -26,11 +26,9 @@ class ProfileCardDesktopWidget extends StatelessWidget {
     final textStyle = Theme.of(context).textTheme;
 
     return Container(
-      width: screenSize,
+      width: screenSize * 0.234375,
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.vertical(
-          bottom: Radius.circular(screenSize * 0.096),
-        ),
+        borderRadius: BorderRadius.circular(screenSize * 0.017578125),
         color: theme.profileCardTheme,
       ),
       child: Padding(
@@ -40,10 +38,10 @@ class ProfileCardDesktopWidget extends StatelessWidget {
           left: screenSize * 0.017578125,
         ),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisSize: MainAxisSize.min,
           children: [
             Row(
-              mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 AvatarDesktopWidget(
@@ -80,25 +78,25 @@ class ProfileCardDesktopWidget extends StatelessWidget {
             SizedBox(height: screenSize * 0.013671875),
             Row(
               children: [
-                ProfileButtonsMobileWidget(
+                ProfileButtonsDesktopWidget(
                   icon: CustomIcon.callingIcon,
                   active: true,
                   screenSize: screenSize,
                 ),
-                SizedBox(width: screenSize * 0009765625),
-                ProfileButtonsMobileWidget(
+                SizedBox(width: screenSize * 0.009765625),
+                ProfileButtonsDesktopWidget(
                   icon: CustomIcon.videoCallIcon,
                   active: true,
                   screenSize: screenSize,
                 ),
-                SizedBox(width: screenSize * 0009765625),
-                ProfileButtonsMobileWidget(
+                SizedBox(width: screenSize * 0.009765625),
+                ProfileButtonsDesktopWidget(
                   icon: CustomIcon.volumeMuteIcon,
                   active: true,
                   screenSize: screenSize,
                 ),
-                SizedBox(width: screenSize * 0009765625),
-                ProfileButtonsMobileWidget(
+                SizedBox(width: screenSize * 0.009765625),
+                ProfileButtonsDesktopWidget(
                   icon: CustomIcon.suitcaseOutlineIcon,
                   active: false,
                   screenSize: screenSize,
@@ -107,7 +105,6 @@ class ProfileCardDesktopWidget extends StatelessWidget {
             ),
             SizedBox(height: screenSize * 0.015625),
             Row(
-              mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
                   status,
@@ -128,7 +125,7 @@ class ProfileCardDesktopWidget extends StatelessWidget {
             ),
             SizedBox(height: screenSize * 0.01953125),
             SizedBox(
-              width: screenSize * 0.0859375,
+              width: screenSize * 0.166015625,
               child: Wrap(
                 spacing: screenSize * 0.009765625,
                 runSpacing: screenSize * 0.009765625,

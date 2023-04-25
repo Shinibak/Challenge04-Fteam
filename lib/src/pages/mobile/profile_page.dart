@@ -1,5 +1,7 @@
 import 'package:design_system/design_system.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import '../../controllers/animated_chat_controller.dart';
 import '../../controllers/todo_controller.dart';
 import '../../datasource/local_service/hive_local_storage_service.dart';
 import '../../datasource/todo_get_datasource.dart';
@@ -20,11 +22,12 @@ class ProfilePage extends StatefulWidget {
 
 class _ProfilePageState extends State<ProfilePage> {
   late TodoController controller;
+   late AnimatedChatController aController;
 
   @override
   Widget build(BuildContext context) {
     // ignore: cast_nullable_to_non_nullable
-    final profile = ModalRoute.of(context)!.settings.arguments as ProfileModel;
+    aController = context.watch<AnimatedChatController>();
     final screenSize = MediaQuery.of(context).size.width;
 
     final hiveService = HiveLocalStorageService();
@@ -33,24 +36,24 @@ class _ProfilePageState extends State<ProfilePage> {
     final getRepository = TodoGetRepository(getDatasource);
     final putRepository = TodoPutRepository(putDatasource);
     final controller = TodoController(putRepository, getRepository);
-    controller.getTodo(profile.name);
+    controller.getTodo(aController.getProfile().name);
 
     return Scaffold(
-      body: AnimatedBuilder(
-        animation: controller,
-        builder: (context, child) {
-          return Column(
-            children: [
-              ProfileCardWidget(
-                avatarImage: profile.avatarImage,
-                name: profile.name,
-                isOnline: profile.isOnline,
-                number: profile.number,
-                status: profile.status,
-                skills: profile.skills,
-                screenSize: screenSize,
-              ),
-              Expanded(
+      body: Column(
+        children: [
+          ProfileCardWidget(
+            avatarImage: aController.getProfile().avatarImage,
+            name: aController.getProfile().name,
+            isOnline: aController.getProfile().isOnline,
+            number: aController.getProfile().number,
+            status: aController.getProfile().status,
+            skills: aController.getProfile().skills,
+            screenSize: screenSize,
+          ),
+          AnimatedBuilder(
+            animation: controller,
+            builder: (context, child) {
+              return Expanded(
                 child: ListView.builder(
                   padding: EdgeInsets.only(top: screenSize * 0.064),
                   itemCount: controller.returnToDoList().length,
@@ -78,10 +81,10 @@ class _ProfilePageState extends State<ProfilePage> {
                     );
                   },
                 ),
-              ),
-            ],
-          );
-        },
+              );
+            },
+          ),
+        ],
       ),
       floatingActionButton: FloatingActionButton(
         backgroundColor:

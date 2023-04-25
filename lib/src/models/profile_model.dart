@@ -11,8 +11,9 @@ class ProfileModel {
   final List<ChatModel> messages;
   final int notifications;
   final List<SkillSetModel> skills;
+  final String group;
 
-  ProfileModel({
+  ProfileModel( {
     required this.avatarImage,
     required this.name,
     required this.number,
@@ -22,5 +23,6 @@ class ProfileModel {
     required this.status,
     required this.notifications,
     required this.skills,
+    required this.group,
   });
 }

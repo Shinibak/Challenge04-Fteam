@@ -2,7 +2,7 @@ import 'package:design_system/design_system.dart';
 import 'package:flutter/material.dart';
 
 // ignore: camel_case_types
-class ChatPreviewDesktopWidget extends StatefulWidget {
+class ChatPreviewDesktopWidget extends StatelessWidget {
   final String avatarImage;
   final String name;
   final String number;
@@ -11,9 +11,11 @@ class ChatPreviewDesktopWidget extends StatefulWidget {
   final bool muted;
   final int notifications;
   final bool online;
-
+  final bool isSelected;
+  Function(BuildContext)? openChat;
   final double screenSize;
-  const ChatPreviewDesktopWidget({
+
+  ChatPreviewDesktopWidget({
     super.key,
     required this.notifications,
     required this.avatarImage,
@@ -24,15 +26,9 @@ class ChatPreviewDesktopWidget extends StatefulWidget {
     required this.muted,
     required this.online,
     required this.screenSize,
+    required this.openChat,
+    required this.isSelected,
   });
-
-  @override
-  State<ChatPreviewDesktopWidget> createState() =>
-      _ChatPreviewDesktopWidgetState();
-}
-
-class _ChatPreviewDesktopWidgetState extends State<ChatPreviewDesktopWidget> {
-  var wasPressed = false;
 
   @override
   Widget build(BuildContext context) {
@@ -40,53 +36,47 @@ class _ChatPreviewDesktopWidgetState extends State<ChatPreviewDesktopWidget> {
     final text = Theme.of(context).textTheme;
 
     return GestureDetector(
-      onTap: () {
-        setState(
-          () {
-            wasPressed = !wasPressed;
-          },
-        );
-      },
+      onTap: () => openChat!(context),
       child: Container(
-        height: widget.screenSize * 0.095703125,
-        width: widget.screenSize * 0.265625,
+        height: screenSize * 0.095703125,
+        width: screenSize * 0.265625,
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(widget.screenSize * 0.017578125),
-          color: wasPressed ? theme.todoColorOff : theme.offColor,
+          borderRadius: BorderRadius.circular(screenSize * 0.017578125),
+          color: isSelected? theme.todoColorOff : theme.offColor,
         ),
         child: Row(
           children: [
-            SizedBox(width: widget.screenSize * 0.009765625),
+            SizedBox(width: screenSize * 0.009765625),
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                SizedBox(height: widget.screenSize * 0.013671875),
+                SizedBox(height: screenSize * 0.013671875),
                 AvatarNotificationDesktopWidget(
-                  screenSize: widget.screenSize,
-                  avatarImage: widget.avatarImage,
-                  notifications: widget.notifications,
+                  screenSize: screenSize,
+                  avatarImage: avatarImage,
+                  notifications: notifications,
                   active: true,
                 )
               ],
             ),
-            SizedBox(width: widget.screenSize * 0.015625),
+            SizedBox(width: screenSize * 0.015625),
             Expanded(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Row(
                     children: [
-                      SizedBox(width: widget.screenSize * 0.099609375),
+                      SizedBox(width: screenSize * 0.099609375),
                       Icon(
                         Icons.notifications_off_outlined,
-                        color: widget.muted
+                        color: muted
                             ? theme.mutedIcon
                             : theme.buttonColorOff,
-                        size: widget.screenSize * 0.013671875,
+                        size: screenSize * 0.013671875,
                       ),
                     ],
                   ),
-                  SizedBox(height: widget.screenSize * 0.001953125),
+                  SizedBox(height: screenSize * 0.001953125),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
@@ -94,27 +84,31 @@ class _ChatPreviewDesktopWidgetState extends State<ChatPreviewDesktopWidget> {
                         mainAxisSize: MainAxisSize.min,
                         children: [
                           Text(
-                            widget.name,
+                            name,
                             style: text.bodyText2,
                           ),
-                          SizedBox(width: widget.screenSize * 0.00390625),
+                          SizedBox(width: screenSize * 0.00390625),
                           OnlineStatusWidget(
-                            isOnline: widget.online,
-                            screenSize: widget.screenSize * 0.009765625,
+                            isOnline: online,
+                            screenSize: screenSize * 0.009765625,
                           ),
                         ],
                       ),
+                      const Expanded(
+                        child: SizedBox(),
+                      ),
                       Text(
-                        widget.lastMessageData,
+                        lastMessageData,
                         style: text.caption,
                       ),
+                      SizedBox(width: screenSize * 0.01171875),
                     ],
                   ),
-                  SizedBox(height: widget.screenSize * 0.009765625),
-                  Text(widget.number, style: text.caption),
-                  SizedBox(height: widget.screenSize * 0.013671875),
+                  SizedBox(height: screenSize * 0.009765625),
+                  Text(number, style: text.caption),
+                  SizedBox(height: screenSize * 0.013671875),
                   Text(
-                    widget.lastMessage,
+                    lastMessage,
                     style: text.subtitle2,
                   ),
                 ],

@@ -76,142 +76,131 @@ class _TodoFormListState extends State<TodoFormList> {
     final textStyle = Theme.of(context).textTheme;
 
     return Container(
+      width: widget.screenSize * 0.9,
       color: theme.profileCardTheme,
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Center(
-            child: Form(
-              key: _formKey,
-              child: SizedBox(
-                width: widget.screenSize * 0.9,
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    SizedBox(width: widget.screenSize * 0.01),
-                    Row(
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        Expanded(
-                          child: TextFormField(
-                            controller: taskController,
-                            validator: (value) {
-                              if (value == null || value.isEmpty) {
-                                return 'Please enter some text';
-                              }
-                              return null;
-                            },
-                          ),
-                        ),
-                        SizedBox(width: widget.screenSize * 0.01),
-                        ElevatedButton(
-                          style: ButtonStyle(
-                            backgroundColor: MaterialStateProperty.all<Color>(
-                              theme.profileButton!,
-                            ),
-                          ),
-                          onPressed: () async {
-                            final time = await pickTime();
-
-                            if (time == null) return;
-
-                            final newDateTime = DateTime(
-                              dateTime.year,
-                              dateTime.month,
-                              dateTime.day,
-                              time.hour,
-                              time.minute,
-                            );
-                            setState(() => dateTime = newDateTime);
-                          },
-                          child: Text(
-                            '$hours:$minutes',
-                            style: validate
-                                ? textStyle.subtitle1
-                                : theme.buttonError,
-                          ),
-                        ),
-                        SizedBox(width: widget.screenSize * 0.01),
-                        ElevatedButton(
-                          style: ButtonStyle(
-                            backgroundColor: MaterialStateProperty.all<Color>(
-                              theme.profileButton!,
-                            ),
-                          ),
-                          onPressed: () async {
-                            final date = await pickDate();
-                            if (date == null) return;
-
-                            final newDateTime = DateTime(
-                              date.year,
-                              date.month,
-                              date.day,
-                              dateTime.hour,
-                              dateTime.minute,
-                            );
-
-                            setState(() => dateTime = newDateTime);
-                          },
-                          child: Text(
-                            '${dateTime.day}/${dateTime.month}/${dateTime.year}',
-                            style: textStyle.subtitle1,
-                          ),
-                        ),
-                      ],
+      child: Form(
+        key: _formKey,
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            SizedBox(width: widget.screenSize * 0.01),
+            Row(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Expanded(
+                  child: TextFormField(
+                    controller: taskController,
+                    validator: (value) {
+                      if (value == null || value.isEmpty) {
+                        return 'Please enter some text';
+                      }
+                      return null;
+                    },
+                  ),
+                ),
+                SizedBox(width: widget.screenSize * 0.01),
+                ElevatedButton(
+                  style: ButtonStyle(
+                    backgroundColor: MaterialStateProperty.all<Color>(
+                      theme.profileButton!,
                     ),
-                    if (validate == false)
-                      Text(
-                        'Hora invalida',
-                        style: TextStyle(
-                          color: theme.deleted,
-                        ),
-                      ),
-                    SizedBox(height: widget.screenSize * 0.01),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      children: [
-                        ElevatedButton(
-                          style: ButtonStyle(
-                            backgroundColor: MaterialStateProperty.all<Color>(
-                              theme.profileButton!,
-                            ),
-                          ),
-                          onPressed: () {
-                            if (_formKey.currentState!.validate() == true &&
-                                validatorData() == true) {
-                              widget.onRefreshScreen!(
-                                dateTime,
-                                taskController.text,
-                              );
-                              Navigator.pop(context);
-                            }
-                          },
-                          child: Text(
-                            'Save',
-                            style: textStyle.subtitle1,
-                          ),
-                        ),
-                        ElevatedButton(
-                          style: ButtonStyle(
-                            backgroundColor: MaterialStateProperty.all<Color>(
-                              theme.profileButton!,
-                            ),
-                          ),
-                          onPressed: () => Navigator.pop(context),
-                          child: Text(
-                            'Cancel',
-                            style: textStyle.subtitle1,
-                          ),
-                        ),
-                      ],
+                  ),
+                  onPressed: () async {
+                    final time = await pickTime();
+
+                    if (time == null) return;
+
+                    final newDateTime = DateTime(
+                      dateTime.year,
+                      dateTime.month,
+                      dateTime.day,
+                      time.hour,
+                      time.minute,
+                    );
+                    setState(() => dateTime = newDateTime);
+                  },
+                  child: Text(
+                    '$hours:$minutes',
+                    style: validate ? textStyle.subtitle1 : theme.buttonError,
+                  ),
+                ),
+                SizedBox(width: widget.screenSize * 0.01),
+                ElevatedButton(
+                  style: ButtonStyle(
+                    backgroundColor: MaterialStateProperty.all<Color>(
+                      theme.profileButton!,
                     ),
-                    SizedBox(height: widget.screenSize * 0.01),
-                  ],
+                  ),
+                  onPressed: () async {
+                    final date = await pickDate();
+                    if (date == null) return;
+
+                    final newDateTime = DateTime(
+                      date.year,
+                      date.month,
+                      date.day,
+                      dateTime.hour,
+                      dateTime.minute,
+                    );
+
+                    setState(() => dateTime = newDateTime);
+                  },
+                  child: Text(
+                    '${dateTime.day}/${dateTime.month}/${dateTime.year}',
+                    style: textStyle.subtitle1,
+                  ),
+                ),
+              ],
+            ),
+            if (validate == false)
+              Text(
+                'Hora invalida',
+                style: TextStyle(
+                  color: theme.deleted,
                 ),
               ),
+            SizedBox(height: widget.screenSize * 0.01),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                ElevatedButton(
+                  style: ButtonStyle(
+                    backgroundColor: MaterialStateProperty.all<Color>(
+                      theme.profileButton!,
+                    ),
+                  ),
+                  onPressed: () {
+                    if (_formKey.currentState!.validate() == true &&
+                        validatorData() == true) {
+                      widget.onRefreshScreen!(
+                        dateTime,
+                        taskController.text,
+                      );
+                      Navigator.pop(context);
+                    }
+                  },
+                  child: Text(
+                    'Save',
+                    style: textStyle.subtitle1,
+                  ),
+                ),
+                ElevatedButton(
+                  style: ButtonStyle(
+                    backgroundColor: MaterialStateProperty.all<Color>(
+                      theme.profileButton!,
+                    ),
+                  ),
+                  onPressed: () => Navigator.pop(context),
+                  child: Text(
+                    'Cancel',
+                    style: textStyle.subtitle1,
+                  ),
+                ),
+              ],
             ),
-          ),
-        ],
+            SizedBox(height: widget.screenSize * 0.01),
+          ],
+        ),
       ),
     );
   }
