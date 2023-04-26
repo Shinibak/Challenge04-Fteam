@@ -83,7 +83,9 @@ class TodoItemDesktopWidget extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
-                  taskName,
+                  taskName.length > 15
+                      ? '${taskName.substring(1, 15)}...'
+                      : taskName,
                   style: textStyle.bodyText2,
                 ),
                 SizedBox(height: screenSize * 0.0078125),

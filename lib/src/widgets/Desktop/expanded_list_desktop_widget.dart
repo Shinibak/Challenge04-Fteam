@@ -143,42 +143,44 @@ class _ExpandedListDesktopWidgetState extends State<ExpandedListDesktopWidget>
                       physics: const NeverScrollableScrollPhysics(),
                       itemBuilder: (BuildContext context, int index) {
                         if (widget.group == profileList[index].group) {
-                          return ChatPreviewDesktopWidget(
-                            notifications: profileList[index].notifications,
-                            avatarImage: profileList[index].avatarImage,
-                            name: profileList[index].name,
-                            number: profileList[index].number,
-                            lastMessageData:
-                                profileList[index].messages.last.hour,
-                            lastMessage:
-                                profileList[index].messages.last.message.last,
-                            muted: profileList[index].isMuted,
-                            online: profileList[index].isOnline,
-                            screenSize: widget.screenSize,
-                            openChat: (value) {
-                              chatController.isOpenChat(profileList[index]);
-                            },
-                            isSelected: chatController.getProfile().name ==
-                                profileList[index].name,
+                          return GestureDetector(
+                            onTap: () =>
+                                chatController.isOpenChat(profileList[index]),
+                            child: ChatPreviewDesktopWidget(
+                              notifications: profileList[index].notifications,
+                              avatarImage: profileList[index].avatarImage,
+                              name: profileList[index].name,
+                              number: profileList[index].number,
+                              lastMessageData:
+                                  profileList[index].messages.last.hour,
+                              lastMessage:
+                                  profileList[index].messages.last.message.last,
+                              muted: profileList[index].isMuted,
+                              online: profileList[index].isOnline,
+                              screenSize: widget.screenSize,
+                              isSelected: chatController.getProfile().name ==
+                                  profileList[index].name,
+                            ),
                           );
                         } else if (widget.group == 'All Message') {
-                          return ChatPreviewDesktopWidget(
-                            notifications: profileList[index].notifications,
-                            avatarImage: profileList[index].avatarImage,
-                            name: profileList[index].name,
-                            number: profileList[index].number,
-                            lastMessageData:
-                                profileList[index].messages.last.hour,
-                            lastMessage:
-                                profileList[index].messages.last.message.last,
-                            muted: profileList[index].isMuted,
-                            online: profileList[index].isOnline,
-                            screenSize: widget.screenSize,
-                            openChat: (value) {
-                              chatController.isOpenChat(profileList[index]);
-                            },
-                            isSelected: chatController.getProfile().name ==
-                                profileList[index].name,
+                          return GestureDetector(
+                            onTap: () =>
+                                chatController.isOpenChat(profileList[index]),
+                            child: ChatPreviewDesktopWidget(
+                              notifications: profileList[index].notifications,
+                              avatarImage: profileList[index].avatarImage,
+                              name: profileList[index].name,
+                              number: profileList[index].number,
+                              lastMessageData:
+                                  profileList[index].messages.last.hour,
+                              lastMessage:
+                                  profileList[index].messages.last.message.last,
+                              muted: profileList[index].isMuted,
+                              online: profileList[index].isOnline,
+                              screenSize: widget.screenSize,
+                              isSelected: chatController.getProfile().name ==
+                                  profileList[index].name,
+                            ),
                           );
                         } else {
                           return const SizedBox();

@@ -31,6 +31,12 @@ List<ProfileModel> profilesDataList = [
         sending: true,
         profilePicture: 'my',
       ),
+      ChatModel(
+        message: ['aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa'],
+        hour: '14:34',
+        sending: true,
+        profilePicture: 'my',
+      ),
     ],
     skills: [
       const SkillSetModel(

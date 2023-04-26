@@ -14,7 +14,7 @@ class ChatPreviewDesktopWidget extends StatelessWidget {
   final int notifications;
   final bool online;
   final bool isSelected;
-  Function(BuildContext)? openChat;
+  
   final double screenSize;
 
   ChatPreviewDesktopWidget({
@@ -28,7 +28,7 @@ class ChatPreviewDesktopWidget extends StatelessWidget {
     required this.muted,
     required this.online,
     required this.screenSize,
-    required this.openChat,
+  
     required this.isSelected,
   });
 
@@ -37,87 +37,83 @@ class ChatPreviewDesktopWidget extends StatelessWidget {
     final theme = Theme.of(context).extension<ThemeCustom>()!;
     final text = Theme.of(context).textTheme;
 
-    return GestureDetector(
-      onTap: () => openChat!(context),
-      child: Container(
-        height: screenSize * 0.095703125,
-        width: screenSize * 0.265625,
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(screenSize * 0.017578125),
-          color: isSelected? theme.todoColorOff : theme.offColor,
-        ),
-        child: Row(
-          children: [
-            SizedBox(width: screenSize * 0.009765625),
-            Column(
+    return Container(
+      height: screenSize * 0.1015625,
+      width: screenSize * 0.265625,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(screenSize * 0.017578125),
+        color: isSelected ? theme.todoColorOff : theme.offColor,
+      ),
+      child: Row(
+        children: [
+          SizedBox(width: screenSize * 0.009765625),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              SizedBox(height: screenSize * 0.013671875),
+              AvatarNotificationDesktopWidget(
+                screenSize: screenSize,
+                avatarImage: avatarImage,
+                notifications: notifications,
+                active: true,
+              )
+            ],
+          ),
+          SizedBox(width: screenSize * 0.015625),
+          Expanded(
+            child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
+                SizedBox(height: screenSize * 0.001953125),
+                Row(
+                  children: [
+                    SizedBox(width: screenSize * 0.099609375),
+                    Icon(
+                      Icons.notifications_off_outlined,
+                      color: muted ? theme.mutedIcon : theme.buttonColorOff,
+                      size: screenSize * 0.013671875,
+                    ),
+                  ],
+                ),
+                Row(
+                  children: [
+                    Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Text(
+                          name,
+                          style: text.bodyText2,
+                        ),
+                        SizedBox(width: screenSize * 0.00390625),
+                        OnlineStatusWidget(
+                          isOnline: online,
+                          screenSize: screenSize * 0.009765625,
+                        ),
+                      ],
+                    ),
+                    const Expanded(
+                      child: SizedBox(),
+                    ),
+                    Text(
+                      lastMessageData,
+                      style: text.caption,
+                    ),
+                    SizedBox(width: screenSize * 0.01171875),
+                  ],
+                ),
+                SizedBox(height: screenSize * 0.009765625),
+                Text(number, style: text.caption),
                 SizedBox(height: screenSize * 0.013671875),
-                AvatarNotificationDesktopWidget(
-                  screenSize: screenSize,
-                  avatarImage: avatarImage,
-                  notifications: notifications,
-                  active: true,
-                )
+                Text(
+                  lastMessage.length > 20
+                      ? '${lastMessage.substring(1, 20)}...'
+                      : lastMessage,
+                  style: text.subtitle2,
+                ),
               ],
             ),
-            SizedBox(width: screenSize * 0.015625),
-            Expanded(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Row(
-                    children: [
-                      SizedBox(width: screenSize * 0.099609375),
-                      Icon(
-                        Icons.notifications_off_outlined,
-                        color: muted
-                            ? theme.mutedIcon
-                            : theme.buttonColorOff,
-                        size: screenSize * 0.013671875,
-                      ),
-                    ],
-                  ),
-                  SizedBox(height: screenSize * 0.001953125),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Row(
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          Text(
-                            name,
-                            style: text.bodyText2,
-                          ),
-                          SizedBox(width: screenSize * 0.00390625),
-                          OnlineStatusWidget(
-                            isOnline: online,
-                            screenSize: screenSize * 0.009765625,
-                          ),
-                        ],
-                      ),
-                      const Expanded(
-                        child: SizedBox(),
-                      ),
-                      Text(
-                        lastMessageData,
-                        style: text.caption,
-                      ),
-                      SizedBox(width: screenSize * 0.01171875),
-                    ],
-                  ),
-                  SizedBox(height: screenSize * 0.009765625),
-                  Text(number, style: text.caption),
-                  SizedBox(height: screenSize * 0.013671875),
-                  Text(
-                    lastMessage,
-                    style: text.subtitle2,
-                  ),
-                ],
-              ),
-            ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
