@@ -123,7 +123,10 @@ class ThemeCustom extends ThemeExtension<ThemeCustom> {
       buttonMenuTextOnStyle:
           TextStyle.lerp(buttonMenuTextOnStyle, other.buttonMenuTextOnStyle, t),
       buttonMenuTextOffStyle: TextStyle.lerp(
-          buttonMenuTextOffStyle, other.buttonMenuTextOffStyle, t),
+        buttonMenuTextOffStyle,
+        other.buttonMenuTextOffStyle,
+        t,
+      ),
       buttonColorOn: Color.lerp(buttonColorOn, other.buttonColorOn, t),
       buttonColorOff: Color.lerp(buttonColorOff, other.buttonColorOff, t),
       notificationColorOn:

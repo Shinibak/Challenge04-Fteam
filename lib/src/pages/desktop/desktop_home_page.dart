@@ -1,4 +1,3 @@
-import 'package:challenge04_fteam/src/controllers/animated_chat_controller.dart';
 import 'package:challenge04_fteam/src/widgets/Desktop/app_bar_desktop_widget.dart';
 import 'package:challenge04_fteam/src/widgets/Desktop/groups_box_desktop_widget.dart';
 import 'package:challenge04_fteam/src/widgets/Desktop/open_chat_messages_desktop.dart';
@@ -14,7 +13,6 @@ class DesktopHomePage extends StatelessWidget {
     final theme = Theme.of(context).extension<ThemeCustom>()!;
     final screenSize = MediaQuery.of(context).size.height;
     final filters = filtersDataList;
-    final controller = AnimatedChatController();
 
     return Scaffold(
       body: Column(

@@ -49,7 +49,7 @@ class TodoController extends ChangeNotifier {
     putTodo();
   }
 
-  bool validarData(DateTime todoData) {
+  bool validData(DateTime todoData) {
     final dateTime = DateTime.now();
     final bool validate;
     if (todoData.year <= dateTime.year) {

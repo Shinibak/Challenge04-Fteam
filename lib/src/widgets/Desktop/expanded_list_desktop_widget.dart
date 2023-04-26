@@ -1,4 +1,4 @@
-import 'package:challenge04_fteam/src/controllers/animated_chat_controller.dart';
+import 'package:challenge04_fteam/src/controllers/chat_controller.dart';
 import 'package:challenge04_fteam/src/mockup/profiles_data.dart';
 import 'package:design_system/design_system.dart';
 import 'package:flutter/material.dart';
@@ -28,7 +28,7 @@ class _ExpandedListDesktopWidgetState extends State<ExpandedListDesktopWidget>
   late final Animation<double> heightFactoAnimation;
   late bool wasPassed = widget.active;
   final profileList = profilesDataList;
-  late AnimatedChatController aController;
+  late ChatController chatController;
 
   @override
   void initState() {
@@ -86,7 +86,7 @@ class _ExpandedListDesktopWidgetState extends State<ExpandedListDesktopWidget>
   @override
   Widget build(BuildContext context) {
     final textStyle = Theme.of(context).textTheme;
-    aController = context.watch<AnimatedChatController>();
+    chatController = context.watch<ChatController>();
 
     return AnimatedBuilder(
       animation: controller,
@@ -156,9 +156,9 @@ class _ExpandedListDesktopWidgetState extends State<ExpandedListDesktopWidget>
                             online: profileList[index].isOnline,
                             screenSize: widget.screenSize,
                             openChat: (value) {
-                              aController.isOpenChat(profileList[index]);
+                              chatController.isOpenChat(profileList[index]);
                             },
-                            isSelected: aController.getProfile().name ==
+                            isSelected: chatController.getProfile().name ==
                                 profileList[index].name,
                           );
                         } else if (widget.group == 'All Message') {
@@ -175,9 +175,9 @@ class _ExpandedListDesktopWidgetState extends State<ExpandedListDesktopWidget>
                             online: profileList[index].isOnline,
                             screenSize: widget.screenSize,
                             openChat: (value) {
-                              aController.isOpenChat(profileList[index]);
+                              chatController.isOpenChat(profileList[index]);
                             },
-                            isSelected: aController.getProfile().name ==
+                            isSelected: chatController.getProfile().name ==
                                 profileList[index].name,
                           );
                         } else {

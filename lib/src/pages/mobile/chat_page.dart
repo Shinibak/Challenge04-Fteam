@@ -3,17 +3,16 @@ import 'package:challenge04_fteam/src/widgets/Mobile/chat_list_mobile_widget.dar
 import 'package:design_system/design_system.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import '../../controllers/animated_chat_controller.dart';
+import '../../controllers/chat_controller.dart';
 
 class ChatPage extends StatelessWidget {
   ChatPage({super.key});
 
-
-  late AnimatedChatController controller;
+  late ChatController chatController;
 
   @override
   Widget build(BuildContext context) {
-     controller = context.watch<AnimatedChatController>();
+     chatController = context.watch<ChatController>();
   
     final screenSize = MediaQuery.of(context).size.width;
     return Scaffold(
@@ -23,11 +22,11 @@ class ChatPage extends StatelessWidget {
             child: Column(
               children: [
                 AppBarChatMobileWidget(
-                  profile: controller.getProfile(),
+                  profile: chatController.getProfile(),
                   screenSize: screenSize,
                 ),
                 ChatListMobileWidget(
-                  profile: controller.getProfile(),
+                  profile: chatController.getProfile(),
                   screenSize: screenSize,
                 ),
               ],

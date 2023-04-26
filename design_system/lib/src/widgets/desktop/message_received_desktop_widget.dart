@@ -1,4 +1,3 @@
-import 'package:design_system/design_system.dart';
 import 'package:flutter/material.dart';
 
 class MessageReceiveDesktopWidget extends StatelessWidget {
@@ -13,8 +12,6 @@ class MessageReceiveDesktopWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final textStyle = Theme.of(context).textTheme;
-
-    final theme = Theme.of(context).extension<ThemeCustom>()!;
     return Row(
       mainAxisSize: MainAxisSize.min,
       children: [

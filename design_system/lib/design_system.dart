@@ -13,7 +13,7 @@ export 'src/widgets/desktop/menu_button_desktop_widget.dart';
 export 'src/widgets/desktop/message_received_desktop_widget.dart';
 export 'src/widgets/desktop/message_sent_desktop_widget.dart';
 export 'src/widgets/desktop/notification_desktop_widget.dart';
-export 'src/widgets/desktop/profile_button_Desktop_widget.dart';
+export 'src/widgets/desktop/profile_button_desktop_widget.dart';
 export 'src/widgets/desktop/profile_card_desktop_widget.dart';
 export 'src/widgets/desktop/profile_skills_desktop_widget.dart';
 export 'src/widgets/desktop/search_desktop_widget.dart';

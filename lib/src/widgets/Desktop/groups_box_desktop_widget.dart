@@ -5,7 +5,10 @@ import 'expanded_list_desktop_widget.dart';
 
 class GroupsBoxDesktopWidget extends StatelessWidget {
   final double screenSize;
-  GroupsBoxDesktopWidget({super.key, required this.screenSize});
+  GroupsBoxDesktopWidget({
+    super.key,
+    required this.screenSize,
+  });
 
   final groups = groupsDataList;
 
@@ -27,7 +30,6 @@ class GroupsBoxDesktopWidget extends StatelessWidget {
             SizedBox(height: screenSize * 0.033203125),
             Expanded(
               child: ListView.builder(
-                
                 itemCount: groups.length,
                 padding: EdgeInsets.zero,
                 itemBuilder: (BuildContext context, int index) {

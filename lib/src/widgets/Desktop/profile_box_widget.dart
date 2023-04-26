@@ -8,7 +8,6 @@ import '../../datasource/todo_put_datasource.dart';
 import '../../models/profile_model.dart';
 import '../../repositories/todo_get_repository.dart';
 import '../../repositories/todo_put_repository.dart';
-import '../todo_form.dart';
 
 class ProfileBoxDesktopWidget extends StatefulWidget {
   final ProfileModel profile;
@@ -39,118 +38,136 @@ class _ProfileBoxDesktopWidgetState extends State<ProfileBoxDesktopWidget> {
     final controller = TodoController(putRepository, getRepository);
     controller.getTodo(widget.profile.name);
 
-    return Stack(
-      children: [
-        Expanded(
-          child: Column(
-            children: [
-              ProfileCardDesktopWidget(
-                avatarImage: widget.profile.avatarImage,
-                name: widget.profile.name,
-                isOnline: widget.profile.isOnline,
-                number: widget.profile.number,
-                status: widget.profile.status,
-                skills: widget.profile.skills,
-                screenSize: widget.screenSize,
-              ),
-              SizedBox(height: widget.screenSize * 0.033203125),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Expanded(
-                    child: Text('Attachments', style: textStyle.subtitle2),
-                  ),
-                  Icon(Icons.expand_more,
-                      size: widget.screenSize * 0.013671875),
-                ],
-              ),
-              SizedBox(height: widget.screenSize * 0.03125),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Expanded(
-                    child: Text('Links', style: textStyle.subtitle2),
-                  ),
-                  Icon(Icons.expand_more,
-                      size: widget.screenSize * 0.013671875),
-                ],
-              ),
-              SizedBox(height: widget.screenSize * 0.03125),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Expanded(
-                    child: Text('All Vacancies', style: textStyle.subtitle2),
-                  ),
-                  Icon(Icons.expand_more,
-                      size: widget.screenSize * 0.013671875),
-                ],
-              ),
-              SizedBox(height: widget.screenSize * 0.03125),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Expanded(
-                    child: Text('Appointments', style: textStyle.subtitle2),
-                  ),
-                  Icon(Icons.expand_more,
-                      size: widget.screenSize * 0.013671875),
-                ],
-              ),
-              SizedBox(height: widget.screenSize * 0.01953125),
-              AnimatedBuilder(
-                animation: controller,
-                builder: (context, child) {
-                  return Expanded(
-                    child: ListView.builder(
-                      padding: EdgeInsets.zero,
-                      itemCount: controller.returnToDoList().length,
-                      itemBuilder: (context, index) {
-                        return Padding(
-                          padding: EdgeInsets.only(
-                            bottom: widget.screenSize * 0.009765625,
-                          ),
-                          
-                          child: TodoItemDesktopWidget(
-                            taskName:
-                                controller.returnToDoList()[index].taskTodo,
-                            date: controller.returnToDoList()[index].dateTodo,
-                            taskCompleted:
-                                controller.returnToDoList()[index].isCompleted,
-                            screenSize: widget.screenSize,
-                            onChanged: (value) =>
-                                controller.checkBoxChanged(value, index),
-                            deletedFunction: (context) =>
-                                controller.deletedTask(index),
-                            validate: controller.validarData(
-                              DateTime.parse(
-                                  controller.returnToDoList()[index].dateTodo),
-                            ),
-                          ),
-                        );
-                      },
+    return SizedBox(
+      width: widget.screenSize * 0.234375,
+      child: Stack(
+        children: [
+          Expanded(
+            child: Column(
+              children: [
+                ProfileCardDesktopWidget(
+                  avatarImage: widget.profile.avatarImage,
+                  name: widget.profile.name,
+                  isOnline: widget.profile.isOnline,
+                  number: widget.profile.number,
+                  status: widget.profile.status,
+                  skills: widget.profile.skills,
+                  screenSize: widget.screenSize,
+                ),
+                SizedBox(height: widget.screenSize * 0.033203125),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Expanded(
+                      child: Text('Attachments', style: textStyle.subtitle2),
                     ),
-                  );
-                },
-              ),
-            ],
-          ),
-        ),
-        Positioned(
-          right: 20,
-          bottom: 20,
-          child: FloatingActionButton(
-            backgroundColor:
-                Theme.of(context).floatingActionButtonTheme.backgroundColor,
-            onPressed: () => const TodoFormDesktopWidget(),
-               
-            child: Icon(
-              Icons.add,
-              color: Theme.of(context).iconTheme.color,
+                    Icon(
+                      Icons.expand_more,
+                      size: widget.screenSize * 0.013671875,
+                    ),
+                  ],
+                ),
+                SizedBox(height: widget.screenSize * 0.03125),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Expanded(
+                      child: Text('Links', style: textStyle.subtitle2),
+                    ),
+                    Icon(
+                      Icons.expand_more,
+                      size: widget.screenSize * 0.013671875,
+                    ),
+                  ],
+                ),
+                SizedBox(height: widget.screenSize * 0.03125),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Expanded(
+                      child: Text('All Vacancies', style: textStyle.subtitle2),
+                    ),
+                    Icon(
+                      Icons.expand_more,
+                      size: widget.screenSize * 0.013671875,
+                    ),
+                  ],
+                ),
+                SizedBox(height: widget.screenSize * 0.03125),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Expanded(
+                      child: Text('Appointments', style: textStyle.subtitle2),
+                    ),
+                    Icon(
+                      Icons.expand_more,
+                      size: widget.screenSize * 0.013671875,
+                    ),
+                  ],
+                ),
+                SizedBox(height: widget.screenSize * 0.01953125),
+                AnimatedBuilder(
+                  animation: controller,
+                  builder: (context, child) {
+                    return Expanded(
+                      child: ListView.builder(
+                        padding: EdgeInsets.zero,
+                        itemCount: controller.returnToDoList().length,
+                        itemBuilder: (context, index) {
+                          return Padding(
+                            padding: EdgeInsets.only(
+                              bottom: widget.screenSize * 0.009765625,
+                            ),
+                            child: TodoItemDesktopWidget(
+                              taskName:
+                                  controller.returnToDoList()[index].taskTodo,
+                              date: controller.returnToDoList()[index].dateTodo,
+                              taskCompleted: controller
+                                  .returnToDoList()[index]
+                                  .isCompleted,
+                              screenSize: widget.screenSize,
+                              onChanged: (value) =>
+                                  controller.checkBoxChanged(value, index),
+                              deletedFunction: (context) =>
+                                  controller.deletedTask(index),
+                              validate: controller.validData(
+                                DateTime.parse(
+                                  controller.returnToDoList()[index].dateTodo,
+                                ),
+                              ),
+                            ),
+                          );
+                        },
+                      ),
+                    );
+                  },
+                ),
+              ],
             ),
           ),
-        ),
-      ],
+          Positioned(
+            right: 20,
+            bottom: 20,
+            child: GestureDetector(
+              onTap: () => const TodoFormDesktopWidget(),
+              child: Container(
+                height: 40,
+                width: 40,
+                decoration: BoxDecoration(
+                  color: Colors.purple,
+                  borderRadius: BorderRadius.circular(20),
+                ),
+                child: Icon(
+                  Icons.add,
+                  color: Theme.of(context).iconTheme.color,
+                  size: 20,
+                ),
+              ),
+            ),
+          ),
+        ],
+      ),
     );
   }
 }

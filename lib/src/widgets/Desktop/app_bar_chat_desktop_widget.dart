@@ -1,4 +1,4 @@
-import 'package:challenge04_fteam/src/controllers/animated_chat_controller.dart';
+import 'package:challenge04_fteam/src/controllers/chat_controller.dart';
 import 'package:challenge04_fteam/src/models/profile_model.dart';
 import 'package:design_system/design_system.dart';
 import 'package:flutter/material.dart';
@@ -8,18 +8,18 @@ class AppBarChatDesktopWidget extends StatelessWidget {
   final ProfileModel profile;
   final double screenSize;
 
-  AppBarChatDesktopWidget({
+   AppBarChatDesktopWidget({
     super.key,
     required this.profile,
     required this.screenSize,
   });
 
-  late AnimatedChatController controller;
+  late ChatController chatController;
 
   @override
   Widget build(BuildContext context) {
     final textStyle = Theme.of(context).textTheme;
-    controller = context.watch<AnimatedChatController>();
+    chatController = context.watch<ChatController>();
     return Container(
       height: screenSize * 0.060546875,
       decoration: BoxDecoration(
@@ -60,7 +60,7 @@ class AppBarChatDesktopWidget extends StatelessWidget {
                   borderRadius: BorderRadius.circular(screenSize * 0.013671875),
                 ),
                 child: GestureDetector(
-                  onTap: () => controller.isOpenProfile(),
+                  onTap: () => chatController.isOpenProfile(),
                   child: Row(
                     children: [
                       SizedBox(width: screenSize * 0.015625),

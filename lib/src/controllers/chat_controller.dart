@@ -1,34 +1,44 @@
 import 'package:challenge04_fteam/src/models/profile_model.dart';
 import 'package:flutter/material.dart';
-import '../models/chat_model.dart';
-import '../models/skiil_set_model.dart';
 
-class AnimatedChatController extends ChangeNotifier {
+class ChatController extends ChangeNotifier {
   late ProfileModel _profile = profileInit();
-  var openChat = ValueNotifier<bool>(false);
-  var openProfile = ValueNotifier<bool>(false);
+  var _openChat = false;
+  var _openProfile = false;
 
   void isOpenChat(ProfileModel profile) {
-    if (_profile.name == profile.name) {
-      openChat.value = false;
-      openProfile.value = false;
-      _profile = profileInit();
+    if (_openChat) {
+      if (_profile.name == profile.name) {
+        _openChat = false;
+        _openProfile = false;
+      } else {
+        _openChat = true;
+        _openProfile = false;
+        _profile = profile;
+      }
     } else {
-      openChat.value = true;
-      openProfile.value = false;
+      _openChat = true;
+      _openProfile = false;
       _profile = profile;
     }
     notifyListeners();
   }
 
   void isOpenProfile() {
-    openProfile.value = !openProfile.value;
+    _openProfile = !_openProfile;
     notifyListeners();
   }
 
   ProfileModel getProfile() {
-    final profile = _profile;
-    return profile;
+    return _profile;
+  }
+
+  bool openProfile() {
+    return _openProfile;
+  }
+
+  bool openChat() {
+    return _openChat;
   }
 
   ProfileModel profileInit() {

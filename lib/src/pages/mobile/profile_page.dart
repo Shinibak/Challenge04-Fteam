@@ -1,12 +1,11 @@
 import 'package:design_system/design_system.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import '../../controllers/animated_chat_controller.dart';
+import '../../controllers/chat_controller.dart';
 import '../../controllers/todo_controller.dart';
 import '../../datasource/local_service/hive_local_storage_service.dart';
 import '../../datasource/todo_get_datasource.dart';
 import '../../datasource/todo_put_datasource.dart';
-import '../../models/profile_model.dart';
 import '../../repositories/todo_get_repository.dart';
 import '../../repositories/todo_put_repository.dart';
 import '../../widgets/todo_form.dart';
@@ -22,12 +21,12 @@ class ProfilePage extends StatefulWidget {
 
 class _ProfilePageState extends State<ProfilePage> {
   late TodoController controller;
-   late AnimatedChatController aController;
+  late ChatController chatController;
 
   @override
   Widget build(BuildContext context) {
     // ignore: cast_nullable_to_non_nullable
-    aController = context.watch<AnimatedChatController>();
+    chatController = context.watch<ChatController>();
     final screenSize = MediaQuery.of(context).size.width;
 
     final hiveService = HiveLocalStorageService();
@@ -36,18 +35,18 @@ class _ProfilePageState extends State<ProfilePage> {
     final getRepository = TodoGetRepository(getDatasource);
     final putRepository = TodoPutRepository(putDatasource);
     final controller = TodoController(putRepository, getRepository);
-    controller.getTodo(aController.getProfile().name);
+    controller.getTodo(chatController.getProfile().name);
 
     return Scaffold(
       body: Column(
         children: [
           ProfileCardWidget(
-            avatarImage: aController.getProfile().avatarImage,
-            name: aController.getProfile().name,
-            isOnline: aController.getProfile().isOnline,
-            number: aController.getProfile().number,
-            status: aController.getProfile().status,
-            skills: aController.getProfile().skills,
+            avatarImage: chatController.getProfile().avatarImage,
+            name: chatController.getProfile().name,
+            isOnline: chatController.getProfile().isOnline,
+            number: chatController.getProfile().number,
+            status: chatController.getProfile().status,
+            skills: chatController.getProfile().skills,
             screenSize: screenSize,
           ),
           AnimatedBuilder(
@@ -73,9 +72,10 @@ class _ProfilePageState extends State<ProfilePage> {
                             controller.checkBoxChanged(value, index),
                         deletedFunction: (context) =>
                             controller.deletedTask(index),
-                        validate: controller.validarData(
+                        validate: controller.validData(
                           DateTime.parse(
-                              controller.returnToDoList()[index].dateTodo),
+                            controller.returnToDoList()[index].dateTodo,
+                          ),
                         ),
                       ),
                     );

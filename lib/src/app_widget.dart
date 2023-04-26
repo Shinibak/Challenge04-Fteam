@@ -2,7 +2,7 @@ import 'package:challenge04_fteam/src/pages/home_page.dart';
 import 'package:design_system/design_system.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'controllers/animated_chat_controller.dart';
+import 'controllers/chat_controller.dart';
 import 'pages/mobile/chat_page.dart';
 import 'pages/mobile/profile_page.dart';
 
@@ -14,7 +14,7 @@ class AppWidget extends StatelessWidget {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(
-          create: (context) => AnimatedChatController(),
+          create: (context) => ChatController(),
         ),
       ],
       child: MaterialApp(

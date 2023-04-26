@@ -1,5 +1,5 @@
 import 'package:challenge04_fteam/src/models/chat_model.dart';
-import 'package:challenge04_fteam/src/models/skiil_set_model.dart';
+import 'package:challenge04_fteam/src/models/skill_set_model.dart';
 
 class ProfileModel {
   final String avatarImage;

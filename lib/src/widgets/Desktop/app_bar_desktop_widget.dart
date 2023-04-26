@@ -1,4 +1,5 @@
 import 'package:challenge04_fteam/src/mockup/menu_buttons_data.dart';
+import 'package:challenge04_fteam/src/mockup/profiles_data.dart';
 import 'package:design_system/design_system.dart';
 import 'package:flutter/material.dart';
 
@@ -8,12 +9,27 @@ class AppBarDesktopWidget extends StatelessWidget {
   final double screenSize;
   const AppBarDesktopWidget({super.key, required this.screenSize});
 
+  String period() {
+    final String _hour;
+    final dateTime = DateTime.now();
+    if (dateTime.hour < 12) {
+      _hour = 'Good morning';
+    } else if (dateTime.hour <= 18) {
+      _hour = 'Good afternoon';
+    } else {
+      _hour = 'Goodnight';
+    }
+    return _hour;
+  }
+
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context).extension<ThemeCustom>()!;
     final textStyle = Theme.of(context).textTheme;
-    final menu = menuButtonsDataList;
 
+    final menu = menuButtonsDataList;
+    final profile = profilesDataList;
+    final hour = period();
     return SizedBox(
       height: screenSize * 0.103515625,
       child: Row(
@@ -80,6 +96,21 @@ class AppBarDesktopWidget extends StatelessWidget {
             ],
           ),
           SizedBox(width: screenSize * 0.046875),
+          Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.end,
+            children: [
+              Text('$hour, ${profile.last.name}', style: textStyle.subtitle2),
+              SizedBox(height: screenSize * 0.01171875),
+              Text(profile.last.number, style: textStyle.overline),
+            ],
+          ),
+          SizedBox(width: screenSize * 0.013671875),
+          AvatarDesktopWidget(
+            avatarImage: profile.last.avatarImage,
+            screenSize: screenSize,
+          ),
+          SizedBox(width: screenSize * 0.033203125),
         ],
       ),
     );

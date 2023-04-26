@@ -26,10 +26,9 @@ class _TodoFormListState extends State<TodoFormList> {
 
   @override
   void initState() {
+    super.initState();
     dateTime = DateTime.now();
     reservedDate = dateTime;
-
-    super.initState();
   }
 
   Future<DateTime?> pickDate() => showDatePicker(

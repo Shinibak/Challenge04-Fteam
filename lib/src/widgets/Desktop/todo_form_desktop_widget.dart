@@ -5,14 +5,11 @@ class TodoFormDesktopWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return AlertDialog(
+    return const AlertDialog(
       backgroundColor: Colors.red,
-   
       content: SizedBox(
-          height: 120,
-          child: Column(
-            children: [],
-          )),
+        height: 120,
+      ),
     );
   }
 }

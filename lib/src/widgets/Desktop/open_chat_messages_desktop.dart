@@ -1,73 +1,128 @@
-import 'package:challenge04_fteam/src/controllers/animated_chat_controller.dart';
-import 'package:challenge04_fteam/src/widgets/Desktop/app_bar_chat_desktop_widget.dart';
-import 'package:challenge04_fteam/src/widgets/Desktop/chat_messages_desktop_widget.dart';
+import 'package:challenge04_fteam/src/controllers/chat_controller.dart';
+import 'package:challenge04_fteam/src/mockup/profiles_data.dart';
+import 'package:challenge04_fteam/src/widgets/Desktop/open_profile_desktop_widget.dart';
 import 'package:design_system/design_system.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'app_bar_chat_desktop_widget.dart';
+import 'chat_messages_desktop_widget.dart';
 
-import 'open_profile_desktop_widget.dart';
-
-class OpenChatMessageWidget extends StatelessWidget {
+class OpenChatMessageWidget extends StatefulWidget {
   final double screenSize;
-  OpenChatMessageWidget({
+
+  const OpenChatMessageWidget({
     super.key,
     required this.screenSize,
   });
 
-  late AnimatedChatController controller;
+  @override
+  State<OpenChatMessageWidget> createState() => _OpenChatMessageWidgetState();
+}
+
+class _OpenChatMessageWidgetState extends State<OpenChatMessageWidget>
+    with SingleTickerProviderStateMixin {
+  late final AnimationController controller;
+  late final Animation<double> widthFactoAnimation;
+  final profileList = profilesDataList;
+  late ChatController chatController;
+
+  @override
+  void initState() {
+    super.initState();
+    chatController = context.read<ChatController>();
+    controller = AnimationController(
+      vsync: this,
+      duration: const Duration(milliseconds: 250),
+    );
+
+    widthFactoAnimation = Tween(
+      // ignore: prefer_int_literals
+      begin: 0.0,
+      // ignore: prefer_int_literals
+      end: 1.0,
+    ).animate(controller);
+    if (chatController.openChat()) {
+      controller.forward();
+    } else {
+      controller.reverse();
+    }
+  }
+
+  @override
+  void dispose() {
+    controller.dispose();
+    super.dispose();
+  }
+
+  double sizeWidth(bool isOpen) {
+    if (isOpen) {
+      controller.forward();
+    } else {
+      controller.reverse();
+    }
+    return widthFactoAnimation.value;
+  }
 
   @override
   Widget build(BuildContext context) {
-    controller = context.watch<AnimatedChatController>();
+    chatController = context.watch<ChatController>();
     final theme = Theme.of(context).extension<ThemeCustom>()!;
-    return ValueListenableBuilder(
-      valueListenable: controller.openChat,
-      builder: (context, isOpen, child) => AnimatedContainer(
-        duration: const Duration(milliseconds: 120),
-        width: isOpen ? screenSize * 0.82421875 : 0,
-        child: Row(
-          children: [
-            Container(
-              width: screenSize * 0.5703125,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.vertical(
-                  top: Radius.circular(screenSize * 0.01953125),
-                ),
-                color: theme.todoColorOff,
-              ),
-              child: Stack(
+    return AnimatedBuilder(
+      animation: controller,
+      builder: (context, child) {
+        return ClipRRect(
+          child: Align(
+            widthFactor: sizeWidth(chatController.openChat()),
+            alignment: Alignment.topLeft,
+            child: Expanded(
+              child: Row(
                 children: [
-                  Expanded(
-                    child: Column(
+                  Container(
+                    width: widget.screenSize * 0.5703125,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.vertical(
+                        top: Radius.circular(widget.screenSize * 0.01953125),
+                      ),
+                      color: theme.todoColorOff,
+                    ),
+                    child: Stack(
                       children: [
-                        AppBarChatDesktopWidget(
-                          profile: controller.getProfile(),
-                          screenSize: screenSize,
+                        Expanded(
+                          child: Column(
+                            children: [
+                              AppBarChatDesktopWidget(
+                                profile: chatController.getProfile(),
+                                screenSize: widget.screenSize,
+                              ),
+                              ChatMessagesDesktopWidget(
+                                profile: chatController.getProfile(),
+                                screenSize: widget.screenSize,
+                              ),
+                            ],
+                          ),
                         ),
-                        ChatMessagesDesktopWidget(
-                          profile: controller.getProfile(),
-                          screenSize: screenSize,
+                        Align(
+                          alignment: Alignment.bottomCenter,
+                          child: Padding(
+                            padding: EdgeInsets.only(
+                              bottom: widget.screenSize * 0.015625,
+                            ),
+                            child: TextBarDesktopWidget(
+                              screenSize: widget.screenSize,
+                            ),
+                          ),
                         ),
                       ],
                     ),
                   ),
-                  Align(
-                    alignment: Alignment.bottomCenter,
-                    child: Padding(
-                      padding: EdgeInsets.only(bottom: screenSize * 0.015625),
-                      child: TextBarDesktopWidget(
-                        screenSize: screenSize,
-                      ),
-                    ),
-                  ),
+                  SizedBox(width: widget.screenSize * 0.01953125),
+                  OpenProfileWidget(screenSize: widget.screenSize),
                 ],
               ),
             ),
-            SizedBox(width: screenSize * 0.01953125),
-            OpenProfileWidget(screenSize: screenSize),
-          ],
-        ),
-      ),
+          ),
+        );
+      },
     );
   }
 }
