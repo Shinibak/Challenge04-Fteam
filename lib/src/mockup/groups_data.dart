@@ -4,4 +4,6 @@ List<GroupModel> groupsDataList = [
   const GroupModel(text: 'Unread', active: true),
   const GroupModel(text: 'From Team', active: false),
   const GroupModel(text: 'From companies', active: false),
+   const GroupModel(text: 'All Message', active: true),
+
 ];

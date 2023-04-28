@@ -34,16 +34,13 @@ class _MenuButtonDesktopWidgetState extends State<MenuButtonDesktopWidget> {
           },
         );
       },
-      child: Container(
+      child: SizedBox(
         height: widget.screenSize * 0.101,
-        decoration: BoxDecoration(
-          color: theme.offColor,
-        ),
         child: Column(
-          mainAxisSize: MainAxisSize.min,
           children: [
             Container(
               height: widget.screenSize * 0.0078,
+              width: widget.screenSize * 0.119140625,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.vertical(
                   bottom: Radius.circular(widget.screenSize * 0.0039),
@@ -59,16 +56,20 @@ class _MenuButtonDesktopWidgetState extends State<MenuButtonDesktopWidget> {
                 Icon(
                   widget.icon,
                   color: wasPressed
-                      ? theme.buttonIconColorOn
+                      ? theme.buttonColorOn
                       : theme.buttonIconColorOff,
                   size: widget.screenSize * 0.0234375,
                 ),
                 SizedBox(width: widget.screenSize * 0.013671875),
-                Text(widget.title),
+                Text(
+                  widget.title,
+                  style: wasPressed
+                      ? theme.buttonMenuTextOnStyle
+                      : theme.buttonMenuTextOffStyle,
+                ),
                 SizedBox(width: widget.screenSize * 0.01953125),
               ],
             ),
-            SizedBox(height: widget.screenSize * 0.0390625),
           ],
         ),
       ),

@@ -24,7 +24,7 @@ class CheckBoxDesktopWidget extends StatelessWidget {
         color: wasCheck ? theme.buttonColorOn : theme.todoColorOff,
         border: Border.all(
           color: theme.buttonColorOn!,
-          width: screenSize * 0.005,
+          width: screenSize * 0.001953125,
         ),
       ),
       child: Center(

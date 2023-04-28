@@ -89,7 +89,9 @@ class ChatPreviewMobileWidget extends StatelessWidget {
                       children: [
                         SizedBox(height: screenSize * 0.0053),
                         Text(
-                          lastMessage,
+                          lastMessage.length > 20
+                              ? '${lastMessage.substring(1, 20)}...'
+                              : lastMessage,
                           style: text.bodyText1,
                         ),
                       ],

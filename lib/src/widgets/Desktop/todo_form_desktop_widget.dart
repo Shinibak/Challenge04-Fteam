@@ -1,28 +1,25 @@
-// ignore_for_file: must_be_immutable, lines_longer_than_80_chars
 import 'package:design_system/design_system.dart';
 import 'package:flutter/material.dart';
 
-class TodoFormList extends StatefulWidget {
+class TodoFormDesktopWidget extends StatefulWidget {
   Function(DateTime, String)? onRefreshScreen;
   final double screenSize;
-
-  TodoFormList({
+  TodoFormDesktopWidget({
     super.key,
-    required this.onRefreshScreen,
     required this.screenSize,
+    required this.onRefreshScreen,
   });
 
   @override
-  State<TodoFormList> createState() => _TodoFormListState();
+  State<TodoFormDesktopWidget> createState() => _TodoFormDesktopWidgetState();
 }
 
-class _TodoFormListState extends State<TodoFormList> {
+class _TodoFormDesktopWidgetState extends State<TodoFormDesktopWidget> {
   final taskController = TextEditingController();
   final _formKey = GlobalKey<FormState>();
   late DateTime dateTime;
-  // ignore: type_annotate_public_apis, prefer_typing_uninitialized_variables
-  late final reservedDate;
-  bool validate = true;
+  late DateTime reservedDate;
+  bool state = true;
 
   @override
   void initState() {
@@ -47,6 +44,7 @@ class _TodoFormListState extends State<TodoFormList> {
       );
 
   bool? validatorData() {
+    late final bool _state;
     final valiDate = DateTime.now();
     if (dateTime.year == valiDate.year &&
         dateTime.month == valiDate.month &&
@@ -54,17 +52,19 @@ class _TodoFormListState extends State<TodoFormList> {
       if (dateTime.hour <= valiDate.hour) {
         if (dateTime.minute <= valiDate.minute) {
           setState(() {
-            validate = false;
+            state = false;
           });
-          return false;
+          _state = false;
         } else {
-          return true;
+          _state = true;
         }
       } else {
-        return true;
+        _state = true;
       }
+    } else {
+      _state = true;
     }
-    return true;
+    return _state;
   }
 
   @override
@@ -73,31 +73,49 @@ class _TodoFormListState extends State<TodoFormList> {
     final hours = dateTime.hour.toString().padLeft(2, '0');
     final minutes = dateTime.minute.toString().padLeft(2, '0');
     final textStyle = Theme.of(context).textTheme;
-
     return Container(
-      width: widget.screenSize * 0.9,
-      color: theme.profileCardTheme,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(12),
+        color: theme.profileCardTheme,
+      ),
+      width: 300,
       child: Form(
         key: _formKey,
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisSize: MainAxisSize.min,
           children: [
-            SizedBox(width: widget.screenSize * 0.01),
+            SizedBox(height: widget.screenSize * 0.015),
+            Row(
+              children: [
+                SizedBox(width: widget.screenSize * 0.015),
+                Icon(
+                  Icons.add,
+                  size: 30,
+                  color: Theme.of(context).iconTheme.color,
+                ),
+                SizedBox(width: widget.screenSize * 0.01),
+                Text('Add New Task', style: textStyle.headline5),
+              ],
+            ),
+            SizedBox(height: widget.screenSize * 0.0001),
+            SizedBox(
+              width: 200,
+              child: TextFormField(
+                controller: taskController,
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return 'Please enter some text';
+                  }
+                  return null;
+                },
+              ),
+            ),
+            SizedBox(height: widget.screenSize * 0.01),
             Row(
               mainAxisSize: MainAxisSize.min,
               children: [
-                Expanded(
-                  child: TextFormField(
-                    controller: taskController,
-                    validator: (value) {
-                      if (value == null || value.isEmpty) {
-                        return 'Please enter some text';
-                      }
-                      return null;
-                    },
-                  ),
-                ),
-                SizedBox(width: widget.screenSize * 0.01),
                 ElevatedButton(
                   style: ButtonStyle(
                     backgroundColor: MaterialStateProperty.all<Color>(
@@ -120,7 +138,7 @@ class _TodoFormListState extends State<TodoFormList> {
                   },
                   child: Text(
                     '$hours:$minutes',
-                    style: validate ? textStyle.subtitle1 : theme.buttonError,
+                    style: state ? textStyle.subtitle1 : theme.buttonError,
                   ),
                 ),
                 SizedBox(width: widget.screenSize * 0.01),
@@ -151,7 +169,7 @@ class _TodoFormListState extends State<TodoFormList> {
                 ),
               ],
             ),
-            if (validate == false)
+            if (state == false)
               Text(
                 'Hora invalida',
                 style: TextStyle(
@@ -171,10 +189,12 @@ class _TodoFormListState extends State<TodoFormList> {
                   onPressed: () {
                     if (_formKey.currentState!.validate() == true &&
                         validatorData() == true) {
-                      widget.onRefreshScreen!(
-                        dateTime,
-                        taskController.text,
-                      );
+                      setState(() {
+                        widget.onRefreshScreen!(
+                          dateTime,
+                          taskController.text,
+                        );
+                      });
                       Navigator.pop(context);
                     }
                   },
@@ -189,7 +209,11 @@ class _TodoFormListState extends State<TodoFormList> {
                       theme.profileButton!,
                     ),
                   ),
-                  onPressed: () => Navigator.pop(context),
+                  onPressed: () {
+                    dateTime = DateTime.now();
+                    reservedDate = dateTime;
+                    Navigator.pop(context);
+                  },
                   child: Text(
                     'Cancel',
                     style: textStyle.subtitle1,

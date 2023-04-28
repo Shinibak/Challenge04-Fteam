@@ -58,6 +58,7 @@ class TodoItemMobileWidget extends StatelessWidget {
             onPressed: deletedFunction,
             icon: Icons.delete,
             backgroundColor: theme.deleted!,
+            borderRadius: BorderRadius.circular(20),
           ),
         ],
       ),
@@ -86,7 +87,9 @@ class TodoItemMobileWidget extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    taskName,
+                    taskName.length > 35
+                        ? '${taskName.substring(1, 35)}...'
+                        : taskName,
                     style: textStyle.bodyText2,
                   ),
                   SizedBox(height: screenSize * 0.026),

@@ -1,13 +1,13 @@
 import 'package:design_system/design_system.dart';
 import 'package:flutter/material.dart';
 
-class IncomingMessageWidget extends StatelessWidget {
+class IncomingMessageMobileWidget extends StatelessWidget {
   final String profilePicture;
   final String name;
   final String hours;
   final List messages;
   final double screenSize;
-  const IncomingMessageWidget({
+  const IncomingMessageMobileWidget({
     super.key,
     required this.hours,
     required this.messages,

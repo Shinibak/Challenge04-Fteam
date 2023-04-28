@@ -1,3 +1,5 @@
+// ignore_for_file: must_be_immutable
+
 import 'package:design_system/design_system.dart';
 import 'package:flutter/material.dart';
 
@@ -11,8 +13,11 @@ class ChatPreviewDesktopWidget extends StatelessWidget {
   final bool muted;
   final int notifications;
   final bool online;
+  final bool isSelected;
+  
   final double screenSize;
-  const ChatPreviewDesktopWidget({
+
+  ChatPreviewDesktopWidget({
     super.key,
     required this.notifications,
     required this.avatarImage,
@@ -23,6 +28,8 @@ class ChatPreviewDesktopWidget extends StatelessWidget {
     required this.muted,
     required this.online,
     required this.screenSize,
+  
+    required this.isSelected,
   });
 
   @override
@@ -30,15 +37,21 @@ class ChatPreviewDesktopWidget extends StatelessWidget {
     final theme = Theme.of(context).extension<ThemeCustom>()!;
     final text = Theme.of(context).textTheme;
 
-    return SizedBox(
-      height: screenSize * 0.09375,
+    return Container(
+      height: screenSize * 0.1015625,
       width: screenSize * 0.265625,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(screenSize * 0.017578125),
+        color: isSelected ? theme.todoColorOff : theme.offColor,
+      ),
       child: Row(
         children: [
+          SizedBox(width: screenSize * 0.009765625),
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              AvatarNotificationMobileWidget(
+              SizedBox(height: screenSize * 0.013671875),
+              AvatarNotificationDesktopWidget(
                 screenSize: screenSize,
                 avatarImage: avatarImage,
                 notifications: notifications,
@@ -46,14 +59,23 @@ class ChatPreviewDesktopWidget extends StatelessWidget {
               )
             ],
           ),
-          SizedBox(width: screenSize * 0.042),
+          SizedBox(width: screenSize * 0.015625),
           Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                SizedBox(height: screenSize * 0.010),
+                SizedBox(height: screenSize * 0.001953125),
                 Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    SizedBox(width: screenSize * 0.099609375),
+                    Icon(
+                      Icons.notifications_off_outlined,
+                      color: muted ? theme.mutedIcon : theme.buttonColorOff,
+                      size: screenSize * 0.013671875,
+                    ),
+                  ],
+                ),
+                Row(
                   children: [
                     Row(
                       mainAxisSize: MainAxisSize.min,
@@ -62,48 +84,31 @@ class ChatPreviewDesktopWidget extends StatelessWidget {
                           name,
                           style: text.bodyText2,
                         ),
-                        SizedBox(width: screenSize * 0.016),
+                        SizedBox(width: screenSize * 0.00390625),
                         OnlineStatusWidget(
                           isOnline: online,
-                          screenSize: screenSize,
+                          screenSize: screenSize * 0.009765625,
                         ),
                       ],
+                    ),
+                    const Expanded(
+                      child: SizedBox(),
                     ),
                     Text(
                       lastMessageData,
                       style: text.caption,
                     ),
+                    SizedBox(width: screenSize * 0.01171875),
                   ],
                 ),
-                SizedBox(height: screenSize * 0.026),
-                Row(
-                  children: [
-                    Text(number, style: text.bodySmall),
-                  ],
-                ),
-                // SizedBox(height: screenSize * 0.021),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Column(
-                      children: [
-                        SizedBox(height: screenSize * 0.0053),
-                        Text(
-                          lastMessage,
-                          style: text.bodyText1,
-                        ),
-                      ],
-                    ),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.end,
-                      children: [
-                        Icon(
-                          Icons.notifications_off_outlined,
-                          color: muted ? theme.mutedIcon : theme.buttonColorOff,
-                        ),
-                      ],
-                    )
-                  ],
+                SizedBox(height: screenSize * 0.009765625),
+                Text(number, style: text.caption),
+                SizedBox(height: screenSize * 0.013671875),
+                Text(
+                  lastMessage.length > 20
+                      ? '${lastMessage.substring(1, 20)}...'
+                      : lastMessage,
+                  style: text.subtitle2,
                 ),
               ],
             ),

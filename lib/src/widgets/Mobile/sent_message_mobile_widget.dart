@@ -1,11 +1,11 @@
 import 'package:design_system/design_system.dart';
 import 'package:flutter/material.dart';
 
-class SentMessageWidget extends StatelessWidget {
+class SentMessageMobileWidget extends StatelessWidget {
   final String hours;
   final List messages;
     final double screenSize;
-  const SentMessageWidget({
+  const SentMessageMobileWidget({
     super.key,
     required this.hours,
     required this.messages, required this.screenSize,

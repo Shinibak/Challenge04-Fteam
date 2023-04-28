@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 
 class ThemeCustom extends ThemeExtension<ThemeCustom> {
   final TextStyle? buttonTextOnStyle;
-  final TextStyle? buttonTestOffStyle;
+  final TextStyle? buttonTextOffStyle;
+  final TextStyle? buttonMenuTextOnStyle;
+  final TextStyle? buttonMenuTextOffStyle;
   final TextStyle? buttonError;
   final Color? buttonColorOn;
   final Color? buttonColorOff;
@@ -23,10 +25,13 @@ class ThemeCustom extends ThemeExtension<ThemeCustom> {
   final Color? backOpacity;
   final Color? back;
   final Color? deleted;
+  final Color? chatColor;
 
   ThemeCustom({
     required this.buttonTextOnStyle,
-    required this.buttonTestOffStyle,
+    required this.buttonTextOffStyle,
+    required this.buttonMenuTextOnStyle,
+    required this.buttonMenuTextOffStyle,
     required this.buttonColorOn,
     required this.buttonColorOff,
     required this.notificationColorOn,
@@ -47,12 +52,15 @@ class ThemeCustom extends ThemeExtension<ThemeCustom> {
     required this.backOpacity,
     required this.back,
     required this.deleted,
+    required this.chatColor,
   });
 
   @override
   ThemeCustom copyWith([
     TextStyle? buttonTextOnStyle,
-    TextStyle? buttonTestOffStyle,
+    TextStyle? buttonTextOffStyle,
+    TextStyle? buttonMenuTextOnStyle,
+    TextStyle? buttonMenuTextOffStyle,
     Color? buttonColorOn,
     Color? buttonColorOff,
     Color? notificationColorOn,
@@ -73,10 +81,15 @@ class ThemeCustom extends ThemeExtension<ThemeCustom> {
     Color? backOpacity,
     Color? back,
     Color? deleted,
+    Color? chatColor,
   ]) {
     return ThemeCustom(
       buttonTextOnStyle: buttonTextOnStyle ?? this.buttonTextOnStyle,
-      buttonTestOffStyle: buttonTestOffStyle ?? this.buttonTestOffStyle,
+      buttonTextOffStyle: buttonTextOffStyle ?? this.buttonTextOffStyle,
+      buttonMenuTextOnStyle:
+          buttonMenuTextOnStyle ?? this.buttonMenuTextOnStyle,
+      buttonMenuTextOffStyle:
+          buttonMenuTextOffStyle ?? this.buttonMenuTextOffStyle,
       buttonColorOn: buttonColorOn ?? this.buttonColorOn,
       buttonColorOff: buttonColorOff ?? this.buttonColorOff,
       notificationColorOn: notificationColorOn ?? this.notificationColorOn,
@@ -97,6 +110,7 @@ class ThemeCustom extends ThemeExtension<ThemeCustom> {
       onlineColor: onlineColor ?? this.onlineColor,
       profileButton: profileButton ?? this.profileButton,
       sendMsg: sendMsg ?? this.sendMsg,
+      chatColor: chatColor ?? this.chatColor,
     );
   }
 
@@ -108,8 +122,15 @@ class ThemeCustom extends ThemeExtension<ThemeCustom> {
     return ThemeCustom(
       buttonTextOnStyle:
           TextStyle.lerp(buttonTextOnStyle, other.buttonTextOnStyle, t),
-      buttonTestOffStyle:
-          TextStyle.lerp(buttonTestOffStyle, other.buttonTestOffStyle, t),
+      buttonTextOffStyle:
+          TextStyle.lerp(buttonTextOffStyle, other.buttonTextOffStyle, t),
+      buttonMenuTextOnStyle:
+          TextStyle.lerp(buttonMenuTextOnStyle, other.buttonMenuTextOnStyle, t),
+      buttonMenuTextOffStyle: TextStyle.lerp(
+        buttonMenuTextOffStyle,
+        other.buttonMenuTextOffStyle,
+        t,
+      ),
       buttonColorOn: Color.lerp(buttonColorOn, other.buttonColorOn, t),
       buttonColorOff: Color.lerp(buttonColorOff, other.buttonColorOff, t),
       notificationColorOn:
@@ -134,6 +155,7 @@ class ThemeCustom extends ThemeExtension<ThemeCustom> {
       profileCardTheme: Color.lerp(profileCardTheme, other.profileCardTheme, t),
       receivedMsg: Color.lerp(receivedMsg, other.receivedMsg, t),
       sendMsg: Color.lerp(sendMsg, other.sendMsg, t),
+      chatColor: Color.lerp(chatColor, other.chatColor, t),
     );
   }
 }

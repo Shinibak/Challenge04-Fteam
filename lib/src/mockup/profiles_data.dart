@@ -1,5 +1,5 @@
 import 'package:challenge04_fteam/src/models/chat_model.dart';
-import 'package:challenge04_fteam/src/models/skiil_set_model.dart';
+import 'package:challenge04_fteam/src/models/skill_set_model.dart';
 import 'package:flutter/material.dart';
 import '../models/profile_model.dart';
 
@@ -10,7 +10,7 @@ List<ProfileModel> profilesDataList = [
     name: 'Cris',
     number: '(15) 99872-4545',
     isOnline: false,
-    status: 'batata',
+    status: 'potato',
     notifications: 13,
     messages: [
       ChatModel(
@@ -27,6 +27,12 @@ List<ProfileModel> profilesDataList = [
       ),
       ChatModel(
         message: ['no'],
+        hour: '14:34',
+        sending: true,
+        profilePicture: 'my',
+      ),
+      ChatModel(
+        message: ['aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa'],
         hour: '14:34',
         sending: true,
         profilePicture: 'my',
@@ -54,6 +60,7 @@ List<ProfileModel> profilesDataList = [
         color: Color(0xff8669ab),
       ),
     ],
+    group: 'From Team',
   ),
   ProfileModel(
     avatarImage: 'assets/avatar/john_wick2.jpg',
@@ -89,5 +96,18 @@ List<ProfileModel> profilesDataList = [
         color: Color(0xff89a2a9),
       ),
     ],
+    group: 'Unread',
+  ),
+  ProfileModel(
+    avatarImage: 'assets/avatar/avatar.png',
+    isMuted: false,
+    name: 'Jonh',
+    number: '(1) 99872-4535',
+    isOnline: true,
+    status: 'Lapis',
+    notifications: 1,
+    messages: [],
+    skills: [],
+    group: '',
   ),
 ];
