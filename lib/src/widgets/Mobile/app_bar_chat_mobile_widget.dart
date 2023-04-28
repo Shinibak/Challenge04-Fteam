@@ -1,21 +1,25 @@
 import 'package:challenge04_fteam/src/models/profile_model.dart';
 import 'package:design_system/design_system.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
+import '../../controllers/chat_controller.dart';
 
 class AppBarChatMobileWidget extends StatelessWidget {
   final ProfileModel profile;
   final double screenSize;
-
-  const AppBarChatMobileWidget({
+  AppBarChatMobileWidget({
     super.key,
     required this.profile,
     required this.screenSize,
   });
 
+  late ChatController chatController;
+
   @override
   Widget build(BuildContext context) {
     final textStyle = Theme.of(context).textTheme;
-
+    chatController = context.watch<ChatController>();
     return Container(
       height: screenSize * 0.261,
       width: screenSize,
@@ -27,7 +31,16 @@ class AppBarChatMobileWidget extends StatelessWidget {
           SizedBox(height: screenSize * 0.117),
           Row(
             children: [
-              SizedBox(width: screenSize * 0.048),
+              SizedBox(width: screenSize * 0.001),
+              GestureDetector(
+                onTap: () => Navigator.pop(context),
+                child: Icon(
+                  Icons.arrow_back_ios,
+                  size: screenSize * 0.042,
+                  color: Theme.of(context).iconTheme.color,
+                ),
+              ),
+              SizedBox(width: screenSize * 0.001),
               AvatarChatMobileWidget(
                 avatarImage: profile.avatarImage,
                 screenSize: screenSize,
@@ -50,8 +63,8 @@ class AppBarChatMobileWidget extends StatelessWidget {
                     Navigator.pushNamed(
                       context,
                       '/tree',
-                      arguments: profile,
                     );
+                    chatController.openProfile();
                   },
                   child: Column(
                     children: [

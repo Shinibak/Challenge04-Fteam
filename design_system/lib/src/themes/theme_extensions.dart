@@ -25,6 +25,7 @@ class ThemeCustom extends ThemeExtension<ThemeCustom> {
   final Color? backOpacity;
   final Color? back;
   final Color? deleted;
+  final Color? chatColor;
 
   ThemeCustom({
     required this.buttonTextOnStyle,
@@ -51,6 +52,7 @@ class ThemeCustom extends ThemeExtension<ThemeCustom> {
     required this.backOpacity,
     required this.back,
     required this.deleted,
+    required this.chatColor,
   });
 
   @override
@@ -79,6 +81,7 @@ class ThemeCustom extends ThemeExtension<ThemeCustom> {
     Color? backOpacity,
     Color? back,
     Color? deleted,
+    Color? chatColor,
   ]) {
     return ThemeCustom(
       buttonTextOnStyle: buttonTextOnStyle ?? this.buttonTextOnStyle,
@@ -107,6 +110,7 @@ class ThemeCustom extends ThemeExtension<ThemeCustom> {
       onlineColor: onlineColor ?? this.onlineColor,
       profileButton: profileButton ?? this.profileButton,
       sendMsg: sendMsg ?? this.sendMsg,
+      chatColor: chatColor ?? this.chatColor,
     );
   }
 
@@ -151,6 +155,7 @@ class ThemeCustom extends ThemeExtension<ThemeCustom> {
       profileCardTheme: Color.lerp(profileCardTheme, other.profileCardTheme, t),
       receivedMsg: Color.lerp(receivedMsg, other.receivedMsg, t),
       sendMsg: Color.lerp(sendMsg, other.sendMsg, t),
+      chatColor: Color.lerp(chatColor, other.chatColor, t),
     );
   }
 }

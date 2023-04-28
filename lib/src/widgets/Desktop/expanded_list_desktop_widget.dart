@@ -83,6 +83,20 @@ class _ExpandedListDesktopWidgetState extends State<ExpandedListDesktopWidget>
     return _size;
   }
 
+  bool selected(String name) {
+    final bool _state;
+    if (chatController.getProfile().name == name) {
+      if (chatController.chatIsOpen()) {
+        _state = true;
+      } else {
+        _state = false;
+      }
+    } else {
+      _state = false;
+    }
+    return _state;
+  }
+
   @override
   Widget build(BuildContext context) {
     final textStyle = Theme.of(context).textTheme;
@@ -145,7 +159,7 @@ class _ExpandedListDesktopWidgetState extends State<ExpandedListDesktopWidget>
                         if (widget.group == profileList[index].group) {
                           return GestureDetector(
                             onTap: () =>
-                                chatController.isOpenChat(profileList[index]),
+                                chatController.openChat(profileList[index]),
                             child: ChatPreviewDesktopWidget(
                               notifications: profileList[index].notifications,
                               avatarImage: profileList[index].avatarImage,
@@ -158,14 +172,13 @@ class _ExpandedListDesktopWidgetState extends State<ExpandedListDesktopWidget>
                               muted: profileList[index].isMuted,
                               online: profileList[index].isOnline,
                               screenSize: widget.screenSize,
-                              isSelected: chatController.getProfile().name ==
-                                  profileList[index].name,
+                              isSelected: selected(profileList[index].name),
                             ),
                           );
                         } else if (widget.group == 'All Message') {
                           return GestureDetector(
                             onTap: () =>
-                                chatController.isOpenChat(profileList[index]),
+                                chatController.openChat(profileList[index]),
                             child: ChatPreviewDesktopWidget(
                               notifications: profileList[index].notifications,
                               avatarImage: profileList[index].avatarImage,
@@ -178,8 +191,7 @@ class _ExpandedListDesktopWidgetState extends State<ExpandedListDesktopWidget>
                               muted: profileList[index].isMuted,
                               online: profileList[index].isOnline,
                               screenSize: widget.screenSize,
-                              isSelected: chatController.getProfile().name ==
-                                  profileList[index].name,
+                              isSelected: selected(profileList[index].name),
                             ),
                           );
                         } else {

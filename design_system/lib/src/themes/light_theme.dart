@@ -53,6 +53,7 @@ ThemeData get lightTheme => ThemeData(
               const TextStyle(fontSize: 14, color: Colors.blue),
           buttonMenuTextOffStyle:
               const TextStyle(fontSize: 14, color: Colors.black),
+          chatColor: const Color(0xff1b1e25),
         ),
       ],
     );

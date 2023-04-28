@@ -153,41 +153,20 @@ class _ProfileBoxDesktopWidgetState extends State<ProfileBoxDesktopWidget> {
             child: FloatingActionButton(
               backgroundColor:
                   Theme.of(context).floatingActionButtonTheme.backgroundColor,
-              onPressed: () {
-                showModalBottomSheet(
-                  context: context,
-                  isScrollControlled: false,
-                  builder: (_) => SizedBox(
-                    width: 300,
-                    child: TodoFormList(
-                      onRefreshScreen: controller.saveNewTask,
-                      screenSize: widget.screenSize,
-                    ),
+              onPressed: () => showDialog(
+                context: context,
+                builder: (BuildContext context) => Dialog(
+                  child: TodoFormDesktopWidget(
+                    onRefreshScreen: controller.saveNewTask,
+                    screenSize: widget.screenSize,
                   ),
-                );
-              },
+                ),
+              ),
               child: Icon(
                 Icons.add,
                 color: Theme.of(context).iconTheme.color,
               ),
             ),
-
-            // GestureDetector(
-            //   onTap: () => const TodoFormDesktopWidget(),
-            //   child: Container(
-            //     height: 40,
-            //     width: 40,
-            //     decoration: BoxDecoration(
-            //       color: Colors.purple,
-            //       borderRadius: BorderRadius.circular(20),
-            //     ),
-            //     child: Icon(
-            //       Icons.add,
-            //       color: Theme.of(context).iconTheme.color,
-            //       size: 20,
-            //     ),
-            //   ),
-            // ),
           ),
         ],
       ),

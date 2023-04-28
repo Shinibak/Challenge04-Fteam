@@ -60,7 +60,7 @@ class AppBarChatDesktopWidget extends StatelessWidget {
                   borderRadius: BorderRadius.circular(screenSize * 0.013671875),
                 ),
                 child: GestureDetector(
-                  onTap: () => chatController.isOpenProfile(),
+                  onTap: () => chatController.openProfile(),
                   child: Row(
                     children: [
                       SizedBox(width: screenSize * 0.015625),

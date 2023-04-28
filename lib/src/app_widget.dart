@@ -1,4 +1,4 @@
-import 'package:challenge04_fteam/src/pages/home_page.dart';
+import 'package:challenge04_fteam/src/pages/mobile/mobile_home_page.dart';
 import 'package:design_system/design_system.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -25,7 +25,7 @@ class AppWidget extends StatelessWidget {
         darkTheme: darkTheme,
         initialRoute: '/',
         routes: {
-          '/': (context) => const HomePage(),
+          '/': (context) => const MobileHomePage(),
           '/two': (context) => ChatPage(),
           '/tree': (context) => const ProfilePage(),
         },

@@ -57,6 +57,7 @@ class TodoItemDesktopWidget extends StatelessWidget {
             onPressed: deletedFunction,
             icon: Icons.delete,
             backgroundColor: theme.deleted!,
+            borderRadius: BorderRadius.circular(20),
           ),
         ],
       ),

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../themes/theme_extensions.dart';
+
 class MessageReceiveDesktopWidget extends StatelessWidget {
   final double screenSize;
   final String message;
@@ -11,6 +13,7 @@ class MessageReceiveDesktopWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context).extension<ThemeCustom>()!;
     final textStyle = Theme.of(context).textTheme;
     return Row(
       mainAxisSize: MainAxisSize.min,
@@ -23,7 +26,7 @@ class MessageReceiveDesktopWidget extends StatelessWidget {
               bottomLeft: Radius.circular(screenSize * 0.017578125),
               bottomRight: Radius.circular(screenSize * 0.017578125),
             ),
-            color: Colors.red,
+            color: theme.receivedMsg,
           ),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,

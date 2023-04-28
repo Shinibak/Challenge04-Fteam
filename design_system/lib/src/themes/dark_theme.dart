@@ -58,6 +58,7 @@ ThemeData get darkTheme => ThemeData(
               const TextStyle(fontSize: 14, color: Color(0xfff1fa88)),
           buttonMenuTextOffStyle:
               const TextStyle(fontSize: 14, color: Colors.white),
+          chatColor: const Color(0xff1b1e25),
         ),
       ],
     );

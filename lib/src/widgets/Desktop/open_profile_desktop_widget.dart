@@ -40,11 +40,6 @@ class _OpenProfileWidgetState extends State<OpenProfileWidget>
       // ignore: prefer_int_literals
       end: 1.0,
     ).animate(controller);
-    if (chatController.openProfile()) {
-      controller.forward();
-    } else {
-      controller.reverse();
-    }
   }
 
   @override
@@ -70,7 +65,7 @@ class _OpenProfileWidgetState extends State<OpenProfileWidget>
       builder: (context, child) {
         return ClipRRect(
           child: Align(
-            widthFactor: sizeWidth(chatController.openProfile()),
+            widthFactor: sizeWidth(chatController.profileIsOpen()),
             alignment: Alignment.topLeft,
             child: Expanded(
               child: ProfileBoxDesktopWidget(

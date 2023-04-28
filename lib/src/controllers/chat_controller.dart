@@ -6,7 +6,7 @@ class ChatController extends ChangeNotifier {
   var _openChat = false;
   var _openProfile = false;
 
-  void isOpenChat(ProfileModel profile) {
+  void openChat(ProfileModel profile) {
     if (_openChat) {
       if (_profile.name == profile.name) {
         _openChat = false;
@@ -24,7 +24,12 @@ class ChatController extends ChangeNotifier {
     notifyListeners();
   }
 
-  void isOpenProfile() {
+   void closeChat() {
+    _openChat = false;
+    notifyListeners();
+  }
+
+  void openProfile() {
     _openProfile = !_openProfile;
     notifyListeners();
   }
@@ -33,11 +38,11 @@ class ChatController extends ChangeNotifier {
     return _profile;
   }
 
-  bool openProfile() {
+  bool profileIsOpen() {
     return _openProfile;
   }
 
-  bool openChat() {
+  bool chatIsOpen() {
     return _openChat;
   }
 

@@ -41,11 +41,6 @@ class _OpenChatMessageWidgetState extends State<OpenChatMessageWidget>
       // ignore: prefer_int_literals
       end: 1.0,
     ).animate(controller);
-    if (chatController.openChat()) {
-      controller.forward();
-    } else {
-      controller.reverse();
-    }
   }
 
   @override
@@ -72,7 +67,7 @@ class _OpenChatMessageWidgetState extends State<OpenChatMessageWidget>
       builder: (context, child) {
         return ClipRRect(
           child: Align(
-            widthFactor: sizeWidth(chatController.openChat()),
+            widthFactor: sizeWidth(chatController.chatIsOpen()),
             alignment: Alignment.topLeft,
             child: Expanded(
               child: Row(
@@ -83,7 +78,7 @@ class _OpenChatMessageWidgetState extends State<OpenChatMessageWidget>
                       borderRadius: BorderRadius.vertical(
                         top: Radius.circular(widget.screenSize * 0.01953125),
                       ),
-                      color: theme.todoColorOff,
+                      color: theme.chatColor,
                     ),
                     child: Stack(
                       children: [

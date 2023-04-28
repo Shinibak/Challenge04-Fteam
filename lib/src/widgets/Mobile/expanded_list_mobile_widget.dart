@@ -97,7 +97,7 @@ class _ExpandedListMobileWidgetState extends State<ExpandedListMobileWidget> {
                   return GestureDetector(
                     onTap: () {
                       Navigator.pushNamed(context, '/two');
-                      chatController.isOpenChat(profileList[index]);
+                      chatController.openChat(profileList[index]);
                     },
                     child: Padding(
                       padding: EdgeInsets.only(
@@ -123,7 +123,7 @@ class _ExpandedListMobileWidgetState extends State<ExpandedListMobileWidget> {
                   return GestureDetector(
                     onTap: () {
                       Navigator.pushNamed(context, '/two');
-                      chatController.isOpenChat(profileList[index]);
+                      chatController.openChat(profileList[index]);
                     },
                     child: Padding(
                       padding: EdgeInsets.only(
