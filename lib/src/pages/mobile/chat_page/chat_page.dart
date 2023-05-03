@@ -38,11 +38,11 @@ class _ChatPageState extends State<ChatPage> {
                 child: Column(
                   children: [
                     AppBarChatMobileWidget(
-                      profile: chatController.getProfile(),
+                      profile: chatController.getProfile,
                       screenSize: screenSize,
                     ),
                     ChatListMobileWidget(
-                      profile: chatController.getProfile(),
+                      profile: chatController.getProfile,
                       screenSize: screenSize,
                     ),
                   ],

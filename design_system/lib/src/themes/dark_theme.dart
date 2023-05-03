@@ -2,7 +2,6 @@ import 'package:design_system/src/themes/theme_extensions.dart';
 import 'package:flutter/material.dart';
 
 ThemeData get darkTheme => ThemeData(
-      useMaterial3: true,
       primaryColor: const Color(0xff20232a),
       scaffoldBackgroundColor: const Color(0xff1f222a),
       backgroundColor: const Color(0xff1f222a),

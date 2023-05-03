@@ -73,6 +73,7 @@ class _TodoFormDesktopWidgetState extends State<TodoFormDesktopWidget> {
     final hours = dateTime.hour.toString().padLeft(2, '0');
     final minutes = dateTime.minute.toString().padLeft(2, '0');
     final textStyle = Theme.of(context).textTheme;
+
     return Container(
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(12),
@@ -83,7 +84,6 @@ class _TodoFormDesktopWidgetState extends State<TodoFormDesktopWidget> {
         key: _formKey,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisSize: MainAxisSize.min,
           children: [
             SizedBox(height: widget.screenSize * 0.015),

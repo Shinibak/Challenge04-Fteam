@@ -85,8 +85,8 @@ class _ExpandedListDesktopWidgetState extends State<ExpandedListDesktopWidget>
 
   bool selected(String name) {
     final bool _state;
-    if (chatController.getProfile().name == name) {
-      if (chatController.chatIsOpen()) {
+    if (chatController.getProfile.name == name) {
+      if (chatController.chatIsOpen) {
         _state = true;
       } else {
         _state = false;

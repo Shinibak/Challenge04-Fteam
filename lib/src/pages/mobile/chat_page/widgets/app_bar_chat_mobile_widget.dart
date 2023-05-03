@@ -19,12 +19,13 @@ class AppBarChatMobileWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final textStyle = Theme.of(context).textTheme;
+     final theme = Theme.of(context).extension<ThemeCustom>()!;
     chatController = context.watch<ChatController>();
     return Container(
       height: screenSize * 0.261,
       width: screenSize,
-      decoration: const BoxDecoration(
-        color: Colors.black,
+      decoration:  BoxDecoration(
+        color: theme.back,
       ),
       child: Column(
         children: [

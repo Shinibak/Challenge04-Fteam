@@ -67,7 +67,7 @@ class _OpenChatMessageWidgetState extends State<OpenChatMessageWidget>
       builder: (context, child) {
         return ClipRRect(
           child: Align(
-            widthFactor: sizeWidth(chatController.chatIsOpen()),
+            widthFactor: sizeWidth(chatController.chatIsOpen),
             alignment: Alignment.topLeft,
             child: Expanded(
               child: Row(
@@ -86,11 +86,11 @@ class _OpenChatMessageWidgetState extends State<OpenChatMessageWidget>
                           child: Column(
                             children: [
                               AppBarChatDesktopWidget(
-                                profile: chatController.getProfile(),
+                                profile: chatController.getProfile,
                                 screenSize: widget.screenSize,
                               ),
                               ChatMessagesDesktopWidget(
-                                profile: chatController.getProfile(),
+                                profile: chatController.getProfile,
                                 screenSize: widget.screenSize,
                               ),
                             ],

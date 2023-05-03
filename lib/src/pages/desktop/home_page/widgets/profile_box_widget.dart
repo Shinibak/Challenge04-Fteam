@@ -156,6 +156,11 @@ class _ProfileBoxDesktopWidgetState extends State<ProfileBoxDesktopWidget> {
               onPressed: () => showDialog(
                 context: context,
                 builder: (BuildContext context) => Dialog(
+                  shape: const RoundedRectangleBorder(
+                    borderRadius: BorderRadius.all(
+                      Radius.circular(12),
+                    ),
+                  ),
                   child: TodoFormDesktopWidget(
                     onRefreshScreen: controller.saveNewTask,
                     screenSize: widget.screenSize,

@@ -43,19 +43,19 @@ class _ProfilePageState extends State<ProfilePage> {
     final getRepository = TodoGetRepository(getDatasource);
     final putRepository = TodoPutRepository(putDatasource);
     final controller = TodoController(putRepository, getRepository);
-    controller.getTodo(chatController.getProfile().name);
+    controller.getTodo(chatController.getProfile.name);
 
     return ResponsiveLayout(
       mobile: Scaffold(
         body: Column(
           children: [
             ProfileCardWidget(
-              avatarImage: chatController.getProfile().avatarImage,
-              name: chatController.getProfile().name,
-              isOnline: chatController.getProfile().isOnline,
-              number: chatController.getProfile().number,
-              status: chatController.getProfile().status,
-              skills: chatController.getProfile().skills,
+              avatarImage: chatController.getProfile.avatarImage,
+              name: chatController.getProfile.name,
+              isOnline: chatController.getProfile.isOnline,
+              number: chatController.getProfile.number,
+              status: chatController.getProfile.status,
+              skills: chatController.getProfile.skills,
               screenSize: screenSize,
             ),
             AnimatedBuilder(

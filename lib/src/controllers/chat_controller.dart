@@ -24,7 +24,7 @@ class ChatController extends ChangeNotifier {
     notifyListeners();
   }
 
-   void closeChat() {
+  void closeChat() {
     _openChat = false;
     notifyListeners();
   }
@@ -34,17 +34,11 @@ class ChatController extends ChangeNotifier {
     notifyListeners();
   }
 
-  ProfileModel getProfile() {
-    return _profile;
-  }
+  ProfileModel get getProfile => _profile;
 
-  bool profileIsOpen() {
-    return _openProfile;
-  }
+  bool get profileIsOpen => _openProfile;
 
-  bool chatIsOpen() {
-    return _openChat;
-  }
+  bool get chatIsOpen => _openChat;
 
   ProfileModel profileInit() {
     final profile = ProfileModel(

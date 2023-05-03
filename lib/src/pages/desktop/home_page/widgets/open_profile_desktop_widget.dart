@@ -65,12 +65,12 @@ class _OpenProfileWidgetState extends State<OpenProfileWidget>
       builder: (context, child) {
         return ClipRRect(
           child: Align(
-            widthFactor: sizeWidth(chatController.profileIsOpen()),
+            widthFactor: sizeWidth(chatController.profileIsOpen),
             alignment: Alignment.topLeft,
             child: Expanded(
               child: ProfileBoxDesktopWidget(
                 screenSize: widget.screenSize,
-                profile: chatController.getProfile(),
+                profile: chatController.getProfile,
               ),
             ),
           ),

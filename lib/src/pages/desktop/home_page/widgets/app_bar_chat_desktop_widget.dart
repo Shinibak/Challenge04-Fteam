@@ -8,7 +8,7 @@ class AppBarChatDesktopWidget extends StatelessWidget {
   final ProfileModel profile;
   final double screenSize;
 
-   AppBarChatDesktopWidget({
+  AppBarChatDesktopWidget({
     super.key,
     required this.profile,
     required this.screenSize,
@@ -20,13 +20,14 @@ class AppBarChatDesktopWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     final textStyle = Theme.of(context).textTheme;
     chatController = context.watch<ChatController>();
+    final theme = Theme.of(context).extension<ThemeCustom>()!;
     return Container(
       height: screenSize * 0.060546875,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.vertical(
           top: Radius.circular(screenSize * 0.01953125),
         ),
-        color: Colors.black,
+        color: theme.back,
       ),
       child: Column(
         children: [
