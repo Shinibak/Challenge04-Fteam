@@ -2,21 +2,21 @@
 import 'package:design_system/design_system.dart';
 import 'package:flutter/material.dart';
 
-class TodoFormList extends StatefulWidget {
+class TodoFormMobileWidget extends StatefulWidget {
   Function(DateTime, String)? onRefreshScreen;
   final double screenSize;
 
-  TodoFormList({
+  TodoFormMobileWidget({
     super.key,
     required this.onRefreshScreen,
     required this.screenSize,
   });
 
   @override
-  State<TodoFormList> createState() => _TodoFormListState();
+  State<TodoFormMobileWidget> createState() => _TodoFormMobileWidgetState();
 }
 
-class _TodoFormListState extends State<TodoFormList> {
+class _TodoFormMobileWidgetState extends State<TodoFormMobileWidget> {
   final taskController = TextEditingController();
   final _formKey = GlobalKey<FormState>();
   late DateTime dateTime;

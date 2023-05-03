@@ -1,12 +1,12 @@
-import 'package:challenge04_fteam/src/widgets/Desktop/app_bar_desktop_widget.dart';
-import 'package:challenge04_fteam/src/widgets/Desktop/groups_box_desktop_widget.dart';
-import 'package:challenge04_fteam/src/widgets/Desktop/open_chat_messages_desktop.dart';
+import 'package:challenge04_fteam/src/pages/desktop/home_page/widgets/app_bar_desktop_widget.dart';
+import 'package:challenge04_fteam/src/pages/desktop/home_page/widgets/groups_box_desktop_widget.dart';
+import 'package:challenge04_fteam/src/pages/desktop/home_page/widgets/open_chat_messages_desktop.dart';
 import 'package:design_system/design_system.dart';
 import 'package:flutter/material.dart';
-import '../../mockup/filters_data.dart';
+import '../../../mockup/filters_data.dart';
 
-class DesktopHomePage extends StatelessWidget {
-  const DesktopHomePage({super.key});
+class HomeDesktopPage extends StatelessWidget {
+  const HomeDesktopPage({super.key});
 
   @override
   Widget build(BuildContext context) {

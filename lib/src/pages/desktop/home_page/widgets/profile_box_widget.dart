@@ -1,14 +1,14 @@
-import 'package:challenge04_fteam/src/widgets/Desktop/todo_form_desktop_widget.dart';
+import 'package:challenge04_fteam/src/pages/desktop/home_page/widgets/todo_form_desktop_widget.dart';
 import 'package:design_system/design_system.dart';
 import 'package:flutter/material.dart';
-import '../../controllers/todo_controller.dart';
-import '../../datasource/local_service/hive_local_storage_service.dart';
-import '../../datasource/todo_get_datasource.dart';
-import '../../datasource/todo_put_datasource.dart';
-import '../../models/profile_model.dart';
-import '../../repositories/todo_get_repository.dart';
-import '../../repositories/todo_put_repository.dart';
-import '../todo_form.dart';
+import '../../../../controllers/todo_controller.dart';
+import '../../../../datasource/local_service/hive_local_storage_service.dart';
+import '../../../../datasource/todo_get_datasource.dart';
+import '../../../../datasource/todo_put_datasource.dart';
+import '../../../../models/profile_model.dart';
+import '../../../../repositories/todo_get_repository.dart';
+import '../../../../repositories/todo_put_repository.dart';
+import '../../../mobile/profile_page/widgets/todo_form_mobile_widget.dart';
 
 class ProfileBoxDesktopWidget extends StatefulWidget {
   final ProfileModel profile;

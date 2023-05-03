@@ -1,6 +1,6 @@
 import 'package:design_system/design_system.dart';
 import 'package:flutter/material.dart';
-import '../../mockup/groups_data.dart';
+import '../../../../mockup/groups_data.dart';
 import 'expanded_list_desktop_widget.dart';
 
 class GroupsBoxDesktopWidget extends StatelessWidget {
