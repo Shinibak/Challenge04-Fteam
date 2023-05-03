@@ -3,7 +3,7 @@ import 'package:design_system/design_system.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../../controllers/chat_controller.dart';
+import '../../../../controllers/chat_controller.dart';
 
 class AppBarChatMobileWidget extends StatelessWidget {
   final ProfileModel profile;
@@ -62,7 +62,7 @@ class AppBarChatMobileWidget extends StatelessWidget {
                   onTap: () {
                     Navigator.pushNamed(
                       context,
-                      '/tree',
+                      '/home/profile',
                     );
                     chatController.openProfile();
                   },

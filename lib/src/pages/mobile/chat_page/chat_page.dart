@@ -1,11 +1,11 @@
 import 'package:challenge04_fteam/src/pages/responsive_layout.dart';
-import 'package:challenge04_fteam/src/widgets/Mobile/app_bar_chat_mobile_widget.dart';
-import 'package:challenge04_fteam/src/widgets/Mobile/chat_list_mobile_widget.dart';
+import 'package:challenge04_fteam/src/pages/mobile/chat_page/widgets/app_bar_chat_mobile_widget.dart';
+import 'package:challenge04_fteam/src/pages/mobile/chat_page/widgets/chat_list_mobile_widget.dart';
 import 'package:design_system/design_system.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import '../../controllers/chat_controller.dart';
-import '../desktop/desktop_home_page.dart';
+import '../../../controllers/chat_controller.dart';
+import '../../desktop/home_page/home_desktop_page.dart';
 
 class ChatPage extends StatefulWidget {
   const ChatPage({super.key});
@@ -61,7 +61,7 @@ class _ChatPageState extends State<ChatPage> {
           ],
         ),
       ),
-      desktop: const DesktopHomePage(),
+      desktop: const HomeDesktopPage(),
     );
   }
 }

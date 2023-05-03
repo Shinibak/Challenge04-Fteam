@@ -1,16 +1,16 @@
-import 'package:challenge04_fteam/src/pages/desktop/desktop_home_page.dart';
+import 'package:challenge04_fteam/src/pages/desktop/home_page/home_desktop_page.dart';
 import 'package:challenge04_fteam/src/pages/responsive_layout.dart';
 import 'package:design_system/design_system.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import '../../controllers/chat_controller.dart';
-import '../../controllers/todo_controller.dart';
-import '../../datasource/local_service/hive_local_storage_service.dart';
-import '../../datasource/todo_get_datasource.dart';
-import '../../datasource/todo_put_datasource.dart';
-import '../../repositories/todo_get_repository.dart';
-import '../../repositories/todo_put_repository.dart';
-import '../../widgets/todo_form.dart';
+import '../../../controllers/chat_controller.dart';
+import '../../../controllers/todo_controller.dart';
+import '../../../datasource/local_service/hive_local_storage_service.dart';
+import '../../../datasource/todo_get_datasource.dart';
+import '../../../datasource/todo_put_datasource.dart';
+import '../../../repositories/todo_get_repository.dart';
+import '../../../repositories/todo_put_repository.dart';
+import 'widgets/todo_form_mobile_widget.dart';
 
 class ProfilePage extends StatefulWidget {
   const ProfilePage({
@@ -106,7 +106,7 @@ class _ProfilePageState extends State<ProfilePage> {
                 padding: EdgeInsets.only(
                   bottom: MediaQuery.of(context).viewInsets.bottom,
                 ),
-                child: TodoFormList(
+                child: TodoFormMobileWidget(
                   onRefreshScreen: controller.saveNewTask,
                   screenSize: screenSize,
                 ),
@@ -119,7 +119,7 @@ class _ProfilePageState extends State<ProfilePage> {
           ),
         ),
       ),
-      desktop: const DesktopHomePage(),
+      desktop: const HomeDesktopPage(),
     );
   }
 }

@@ -1,13 +1,13 @@
 import 'package:challenge04_fteam/src/mockup/filters_data.dart';
 import 'package:challenge04_fteam/src/pages/responsive_layout.dart';
-import 'package:challenge04_fteam/src/widgets/Mobile/expanded_list_mobile_widget.dart';
+import 'package:challenge04_fteam/src/pages/mobile/home_page/widgets/expanded_list_mobile_widget.dart';
 import 'package:design_system/design_system.dart';
 import 'package:flutter/material.dart';
-import '../../mockup/groups_data.dart';
-import '../../mockup/menu_buttons_data.dart';
-import '../../widgets/Mobile/list_filter_button_mobile_widget.dart';
-import '../../widgets/Mobile/menu_bar_mobile_widget.dart';
-import '../desktop/desktop_home_page.dart';
+import '../../../mockup/groups_data.dart';
+import '../../../mockup/menu_buttons_data.dart';
+import 'widgets/list_filter_button_mobile_widget.dart';
+import 'widgets/menu_bar_mobile_widget.dart';
+import '../../desktop/home_page/home_desktop_page.dart';
 
 class MobileHomePage extends StatelessWidget {
   const MobileHomePage({super.key});
@@ -78,7 +78,7 @@ class MobileHomePage extends StatelessWidget {
             ),
           ],
         ),
-        desktop: const DesktopHomePage(),
+        desktop: const HomeDesktopPage(),
       ),
     );
   }

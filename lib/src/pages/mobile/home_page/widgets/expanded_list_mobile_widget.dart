@@ -3,7 +3,7 @@ import 'package:design_system/design_system.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../../controllers/chat_controller.dart';
+import '../../../../controllers/chat_controller.dart';
 
 class ExpandedListMobileWidget extends StatefulWidget {
   final String group;
@@ -96,7 +96,7 @@ class _ExpandedListMobileWidgetState extends State<ExpandedListMobileWidget> {
                 if (widget.group == profileList[index].group) {
                   return GestureDetector(
                     onTap: () {
-                      Navigator.pushNamed(context, '/two');
+                      Navigator.pushNamed(context, '/home/chat');
                       chatController.openChat(profileList[index]);
                     },
                     child: Padding(
