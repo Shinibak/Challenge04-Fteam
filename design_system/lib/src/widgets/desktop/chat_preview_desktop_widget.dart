@@ -17,7 +17,7 @@ class ChatPreviewDesktopWidget extends StatelessWidget {
   
   final double screenSize;
 
-  ChatPreviewDesktopWidget({
+  const ChatPreviewDesktopWidget({
     super.key,
     required this.notifications,
     required this.avatarImage,

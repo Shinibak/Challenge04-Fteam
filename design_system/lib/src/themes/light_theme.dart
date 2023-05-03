@@ -44,7 +44,7 @@ ThemeData get lightTheme => ThemeData(
           receivedMsg: const Color.fromARGB(255, 88, 196, 162),
           backOpacity: Colors.blue.withOpacity(0.7),
           back: Colors.blue.withOpacity(0.7),
-          deleted: Color.fromARGB(255, 226, 237, 132),
+          deleted: const Color.fromARGB(255, 226, 237, 132),
           todoColorOff: const Color.fromARGB(255, 104, 174, 231),
           lateStyle: const TextStyle(
             fontSize: 10,
