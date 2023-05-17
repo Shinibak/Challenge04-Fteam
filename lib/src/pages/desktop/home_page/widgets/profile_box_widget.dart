@@ -36,7 +36,7 @@ class _ProfileBoxDesktopWidgetState extends State<ProfileBoxDesktopWidget> {
     final putDatasource = TodoPutDatasource(hiveService);
     final getRepository = TodoGetRepository(getDatasource);
     final putRepository = TodoPutRepository(putDatasource);
-    final controller = TodoController(putRepository, getRepository);
+    controller = TodoController(putRepository, getRepository);
     controller.getTodo(widget.profile.name);
 
     return SizedBox(
